@@ -1,0 +1,47 @@
+/* Navy glow top-left and violet glow bottom-right, as sampled in Figma. */
+.band {
+  background:
+    radial-gradient(
+      75% 72% at 26% 4%,
+      rgb(15 15 50) 0%,
+      rgb(10 11 38 / 0.8) 42%,
+      transparent 88%
+    ),
+    radial-gradient(
+      62% 80% at 74% 100%,
+      rgb(16 12 46) 0%,
+      rgb(12 10 38 / 0.85) 40%,
+      transparent 88%
+    ),
+    var(--color-page);
+}
+
+/*
+ * Desktop staircase: each column's horizontal dividers step down from the
+ * previous column's (offsets come from Figma: 32 / 64 / 96 / 118px from the
+ * top, mirrored at the bottom).
+ */
+@media (width >= 64rem) {
+  .column {
+    position: relative;
+    min-height: 36rem;
+    padding-top: calc(var(--top) + 2.5625rem);
+  }
+
+  .column::before,
+  .column::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: 1px;
+    background: var(--color-rule);
+  }
+
+  .column::before {
+    top: var(--top);
+  }
+
+  .column::after {
+    bottom: var(--bottom);
+  }
+}

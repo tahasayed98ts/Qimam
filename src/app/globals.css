@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * Qimam design tokens.
+ * Palette values are the canonical Figma values from CLAUDE.md; a few extra
+ * neutrals (ink-soft, hairline, glass) were sampled from the Home frame.
+ */
+@theme {
+  /* Typefaces: Michroma (EN display), Roboto (EN body), Kufam (AR). The
+     stacks are swapped for Arabic on html[lang="ar"] below, so these must
+     stay non-inline theme variables. */
+  --font-display: var(--font-michroma), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-display);
+  /* Script-specific faces, e.g. language names in the switcher. */
+  --font-latin: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-kufam), ui-sans-serif, system-ui, sans-serif;
+
+  /* Core palette */
+  --color-page: #020614;
+  --color-ink: #ffffff;
+  --color-ink-soft: #b3b3b3;
+  --color-ink-muted: #7f7f7f;
+  --color-link: #6891ea;
+  --color-accent-blue: #5c7fcd;
+  --color-accent-purple: #b37bf5;
+  --color-numbering: #2b61bf;
+  --color-field: #5e64b233;
+  --color-field-ink: #bbbaba;
+  --color-cta: #3b2f81;
+  --color-footer: #000004;
+  --color-chip: #1a1a1a;
+  --color-hairline: #9a9a9a;
+  /* Table and grid rules (stats grid, testimonials strip). */
+  --color-rule: #434347;
+  /* Light rules of the projects table (Figma #EDEDED). */
+  --color-rule-light: #ededed;
+  --color-ink-dim: #98989a;
+
+  /* Display type scale (Michroma line-height "auto" = 1.42) */
+  --text-display-xl: 3rem;
+  --text-display-xl--line-height: 1.42;
+  --text-display-lg: 2.5rem;
+  --text-display-lg--line-height: 1.42;
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 1.42;
+
+  /* 1264px content width = 1440px frame minus 88px gutters */
+  --container-site: 79rem;
+  /* The footer runs wider: 1312px (64px margins at 1440px). */
+  --container-footer: 82rem;
+}
+
+/* shadcn/ui semantic tokens, mapped onto the Qimam palette (dark only). */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #020614;
+  --foreground: #ffffff;
+  --popover: #0b0f1e;
+  --popover-foreground: #ffffff;
+  --primary: #3b2f81;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #7f7f7f;
+  --accent: rgb(255 255 255 / 0.08);
+  --accent-foreground: #ffffff;
+  --destructive: #f87171;
+  --border: rgb(255 255 255 / 0.12);
+  --input: #5e64b233;
+  --ring: #6891ea;
+  --radius: 0.25rem;
+}
+
+html[lang="ar"] {
+  --font-display: var(--font-kufam), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-kufam), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Side gutter of the content column (88px margins at 1440px come from the
+   1264px max width, not from the gutter). */
+:root {
+  --gutter: 1rem;
+}
+
+@media (width >= 40rem) {
+  :root {
+    --gutter: 1.5rem;
+  }
+}
+
+@media (width >= 64rem) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-page font-sans text-ink antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Desktop is drawn at 90% of the Figma sizes (full size read as too large
+     on laptop screens). Sizes are in rem, so the whole layout scales; keep
+     new sizes in rem or spacing units, not px. Breakpoints are unaffected. */
+  @media (width >= 64rem) {
+    html {
+      font-size: 90%;
+    }
+  }
+
+  body {
+    @apply min-h-dvh bg-page;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/* Header glass: 4%→11% white over a blurred backdrop, as sampled in Figma. */
+@utility header-glass {
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.043) 25%,
+    rgb(255 255 255 / 0.108)
+  );
+  box-shadow: inset 0 0 8px rgb(255 255 255 / 0.05);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+
+  &:where([dir="rtl"] *) {
+    background: linear-gradient(
+      270deg,
+      rgb(255 255 255 / 0.043) 25%,
+      rgb(255 255 255 / 0.108)
+    );
+  }
+}
+
+/* Named `*-container` on purpose: Tailwind 4.3 silently skipped a custom
+   `container-footer` utility, so avoid the `container-` prefix. */
+@utility site-container {
+  width: min(100% - 2 * var(--gutter), var(--container-site));
+  margin-inline: auto;
+}
+
+@utility footer-container {
+  width: min(100% - 2 * var(--gutter), var(--container-footer));
+  margin-inline: auto;
+}
+
+/*
+ * Gradient hairline used by the Figma "social icon" treatment (and the
+ * matching outline buttons): #1A1A1A fill with a 1px white→grey border.
+ * border-image does not respect border-radius, so the border is painted as a
+ * padding-box/border-box double background instead.
+ */
+@utility gradient-outline {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-chip), var(--color-chip)) padding-box,
+    linear-gradient(var(--outline-angle, 90deg), #ffffff 19.83%, #6c6c6c 80.8%)
+      border-box;
+}

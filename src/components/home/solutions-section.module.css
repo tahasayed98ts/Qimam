@@ -1,0 +1,23 @@
+/* Service cards: grey hairline by default; the featured card (and whichever
+   card is hovered) gets the dark fill with the blue→purple gradient border. */
+.card {
+  border: 1px solid rgb(255 255 255 / 0.5);
+  border-radius: 0.25rem;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover,
+.list:not(:hover) .card[data-featured] {
+  border-color: transparent;
+  background:
+    linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+    linear-gradient(100deg, #7b93dc, #5f55ad 50%, #5b35a3) border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}

@@ -1,0 +1,130 @@
+/*
+ * Hero backdrop layers, measured from the Figma Home frame (1440×920):
+ * a faint 120×112.5 px grid centred on a one-cell-wide violet beam, a wider
+ * bluish cone of light, and the twisted strands.
+ */
+.backdrop {
+  --cell-x: 5rem;
+  --cell-y: 4.6875rem;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: var(--cell-x) var(--cell-y);
+  /* 50% centres a vertical line pair on the beam; rows start at 0.6 cell. */
+  background-position: 50% calc(var(--cell-y) * 0.6);
+}
+
+/* Beam, halo and strands share this box. On phones it covers the top of the
+   hero only, so the copy below sits on the darker part of the light. */
+.light {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 64%;
+}
+
+/* Soft cone of light around the beam: blue near the source, violet lower
+   down. The colour ramp is vertical; the cone shape comes from the mask
+   (apex ≈ 0.52 × height above the top, half intensity at ≈ 9°). */
+.halo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(83 97 243 / 0.75) 0%,
+    rgb(83 97 243 / 0.72) 15%,
+    rgb(96 100 240 / 0.52) 33%,
+    rgb(112 102 242 / 0.43) 49%,
+    rgb(121 103 239 / 0.33) 60%,
+    rgb(130 104 239 / 0.23) 71%,
+    rgb(141 104 237 / 0.135) 82%,
+    rgb(127 91 236 / 0.055) 92%,
+    transparent 100%
+  );
+  mask-image: conic-gradient(
+    from 180deg at 50% -52%,
+    #000 0deg,
+    rgb(0 0 0 / 0.92) 5.5deg,
+    rgb(0 0 0 / 0.5) 8.8deg,
+    rgb(0 0 0 / 0.25) 11deg,
+    rgb(0 0 0 / 0.1) 13.5deg,
+    transparent 17deg 343deg,
+    rgb(0 0 0 / 0.1) 346.5deg,
+    rgb(0 0 0 / 0.25) 349deg,
+    rgb(0 0 0 / 0.5) 351.2deg,
+    rgb(0 0 0 / 0.92) 354.5deg,
+    #000 360deg
+  );
+}
+
+.beam {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: calc(var(--cell-x) * 1.2);
+  translate: -50% 0;
+  background: linear-gradient(
+    to bottom,
+    #5a50f0 0%,
+    #8070ff 2.5%,
+    #7d6eff 15%,
+    #7769ff 22%,
+    #6d5eff 28%,
+    #5e4fea 38%,
+    #4e3fb9 49%,
+    #3e308e 60%,
+    #2d2266 71%,
+    #1c1743 82%,
+    #110f2e 89%,
+    #07091d 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 22%,
+    #000 78%,
+    transparent
+  );
+}
+
+/* The Waves artwork's box from Figma: 476×917 at (484, 2) in the 1440×920
+   hero, i.e. 2px right of the beam centre. Scales with the hero height. */
+.helix {
+  position: absolute;
+  top: calc(100% * 2.09 / 920);
+  left: 50%;
+  height: calc(100% * 917 / 920);
+  aspect-ratio: 476 / 917;
+  translate: calc(-50% + 100% * 2.05 / 476) 0;
+  /* The strands add light to the beam (matches Figma better than normal
+     alpha blending). */
+  mix-blend-mode: plus-lighter;
+}
+
+@media (width >= 48rem) {
+  .backdrop {
+    --cell-x: 6.5rem;
+    --cell-y: 6.09375rem;
+  }
+
+  .light {
+    height: 100%;
+  }
+}
+
+@media (width >= 80rem) {
+  .backdrop {
+    --cell-x: 7.5rem;
+    --cell-y: 7.03125rem;
+  }
+}
