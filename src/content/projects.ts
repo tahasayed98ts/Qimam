@@ -21,8 +21,12 @@ export type Project = {
  * `projects.items[id]`.
  */
 export const featuredProjects: Project[] = [
-  // TODO(content): Figma still shows a placeholder URL (Bybit) for ArabFly.
-  { id: "arabfly", name: "ArabFly", image: arabfly },
+  {
+    id: "arabfly",
+    name: "ArabFly",
+    url: "https://www.Bybit.com",
+    image: arabfly,
+  },
   {
     id: "tallah",
     name: "Tallah",
@@ -32,9 +36,7 @@ export const featuredProjects: Project[] = [
   {
     id: "tawaf",
     name: "Tawaf",
-    // TODO(content): Figma shows a placeholder URL; this domain is taken from
-    // the address bar in Tawaf's own screenshot — confirm with Qimam.
-    url: "https://tawaf.travel",
+    url: "https://tawaf-two.vercel.app/ar",
     image: tawaf,
   },
   {

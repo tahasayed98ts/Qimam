@@ -70,9 +70,6 @@ that should be replaced or confirmed before launch (each spot is marked `TODO`
 in code):
 
 - Social profile URLs and the WhatsApp number (`src/config/site.ts`).
-- Project URLs: Figma still shows placeholder links for ArabFly (Bybit) and
-  Tawaf (eventmasters.com). ArabFly's chip is hidden until a link is provided;
-  Tawaf uses `tawaf.travel` from its own screenshot (`src/content/projects.ts`).
 - "Trusted by" company logos, stats figures, and the testimonials (still Lorem
   ipsum in Figma).
 - The "Supported Servers" paragraph reads like template text.
