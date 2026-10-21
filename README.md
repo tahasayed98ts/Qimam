@@ -12,8 +12,10 @@ npm run lint
 npm run build    # also type-checks
 ```
 
-`NEXT_PUBLIC_SITE_URL` sets the absolute base for metadata (defaults to
-`http://localhost:3000`).
+`NEXT_PUBLIC_SITE_URL` sets the absolute base for canonical and hreflang links.
+It's optional: on Vercel it defaults to the project's production domain
+(including a custom domain once one is added), locally to
+`http://localhost:3000`.
 
 ## Structure
 

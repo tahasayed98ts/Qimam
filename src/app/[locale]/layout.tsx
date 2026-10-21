@@ -14,12 +14,20 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
 
+/**
+ * Absolute base for canonical and hreflang links: NEXT_PUBLIC_SITE_URL when
+ * set, else the project's production domain on Vercel, else local dev.
+ */
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL
+  const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  return vercelDomain ? `https://${vercelDomain}` : "http://localhost:3000"
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const { meta } = await getDictionary()
   return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-    ),
+    metadataBase: new URL(siteUrl()),
     title: { default: meta.title, template: `%s | ${meta.title}` },
     description: meta.description,
   }
