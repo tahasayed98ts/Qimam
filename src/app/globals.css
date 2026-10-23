@@ -201,3 +201,89 @@ html[lang="ar"] {
     linear-gradient(var(--outline-angle, 90deg), #ffffff 19.83%, #6c6c6c 80.8%)
       border-box;
 }
+
+/*
+ * Motion. Scroll reveals are CSS scroll-driven animations: no JavaScript, and
+ * only opacity and position animate. Visitors who prefer reduced motion, and
+ * browsers without scroll-driven animations, see the content as is.
+ * --stagger is an item's place in its group (0, 1, 2…): it delays hero
+ * entrances, and offsets scroll reveals of items that share a row.
+ * An overflow: hidden ancestor would capture (and stall) a reveal's view
+ * timeline, so clip with overflow-clip around revealed content.
+ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 var(--reveal-distance, 2rem);
+  }
+}
+
+/* Fades and lifts an element in as it scrolls into view. Optional:
+   --reveal-distance (0 = fade only), --reveal-end (end the range earlier,
+   e.g. `entry 100%` near the end of the page, where the default range can't
+   always be reached), --reveal-timeline (follow an ancestor's named view
+   timeline, e.g. from inside a horizontal scroller). */
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-up cubic-bezier(0.2, 0.6, 0.35, 1) both;
+      animation-timeline: var(--reveal-timeline, view());
+      animation-range:
+        cover calc(var(--stagger, 0) * 5%)
+        var(--reveal-end, cover calc(22% + var(--stagger, 0) * 5%));
+    }
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+}
+
+/* Hero entrance, played once on load since the hero is in view before any
+   scroll; --stagger spaces items 90ms apart. */
+@utility rise-in {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+    animation-delay: calc(var(--stagger, 0) * 90ms);
+  }
+}
+
+@keyframes draw-in {
+  from {
+    scale: 0 1;
+  }
+}
+
+/* A rule drawing out from its inline-start edge, on load. */
+@utility draw-in {
+  @media (prefers-reduced-motion: no-preference) {
+    transform-origin: left;
+    animation: draw-in 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+    animation-delay: calc(var(--stagger, 0) * 90ms);
+
+    &:dir(rtl) {
+      transform-origin: right;
+    }
+  }
+}
+
+@keyframes drift-away {
+  to {
+    opacity: 0;
+    translate: 0 -2.5rem;
+  }
+}
+
+/* Fades and lifts hero copy away as it slides under the fixed header. */
+@utility drift-away {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: drift-away linear both;
+      animation-timeline: view();
+      animation-range: exit -7rem exit 60%;
+    }
+  }
+}

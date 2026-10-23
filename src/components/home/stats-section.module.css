@@ -45,3 +45,30 @@
     bottom: var(--bottom);
   }
 }
+
+/* Each divider draws out from the inline-start edge as it scrolls into view,
+   one column after another (see the motion notes in globals.css). */
+@media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .column::before,
+    .column::after {
+      transform-origin: left;
+      animation: draw-line cubic-bezier(0.4, 0, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range:
+        cover calc(var(--stagger) * 6%)
+        cover calc(28% + var(--stagger) * 6%);
+    }
+
+    .column:dir(rtl)::before,
+    .column:dir(rtl)::after {
+      transform-origin: right;
+    }
+  }
+}
+
+@keyframes draw-line {
+  from {
+    scale: 0 1;
+  }
+}

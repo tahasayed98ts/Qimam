@@ -1,6 +1,7 @@
 import { Bot, Cpu, LayoutGrid, Waypoints, type LucideIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import type { CSSProperties } from "react"
 
 import showcase from "@/assets/home/showcase.webp"
 import { DoubleChevron } from "@/components/icons"
@@ -36,20 +37,26 @@ export async function SolutionsSection() {
         </SectionHeading>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:mt-22.25 lg:grid-cols-[minmax(0,624fr)_minmax(0,618fr)] lg:gap-5.5">
-          <NetworkDiagram className="mx-auto w-full max-w-134.5" />
+          <NetworkDiagram className="mx-auto w-full max-w-134.5 reveal" />
 
-          <div>
-            <p className="flex items-center gap-2.5 text-link">
+          {/* Arrives just after the diagram beside it. */}
+          <div className="[--stagger:1]">
+            <p className="flex reveal items-center gap-2.5 text-link">
               <Cpu aria-hidden="true" strokeWidth={1.5} className="size-6" />
               {solutions.badge}
             </p>
-            <h3 className="mt-3 font-display text-[1.5rem] leading-[1.42] sm:text-[1.75rem] lg:text-[1.875rem]">
+            <h3 className="mt-3 reveal font-display text-[1.5rem] leading-[1.42] sm:text-[1.75rem] lg:text-[1.875rem]">
               {solutions.heading}
             </h3>
-            <p className="mt-2 max-w-[31rem] leading-6 text-ink/65">
+            <p className="mt-2 max-w-[31rem] reveal leading-6 text-ink/65">
               {solutions.body}
             </p>
-            <Button asChild variant="chip" size="cta" className="mt-4.5">
+            <Button
+              asChild
+              variant="chip"
+              size="cta"
+              className="mt-4.5 reveal"
+            >
               <Link href={localizePath(locale, "/services")}>
                 {solutions.cta}
                 <DoubleChevron className="size-5 rtl:-scale-x-100" />
@@ -63,7 +70,7 @@ export async function SolutionsSection() {
           alt={solutions.showcaseAlt}
           placeholder="blur"
           sizes="(min-width: 1344px) 1264px, calc(100vw - 48px)"
-          className="mt-16 w-full rounded-[0.1875rem] lg:mt-22"
+          className="mt-16 w-full reveal rounded-[0.1875rem] lg:mt-22"
         />
 
         <ul
@@ -74,7 +81,8 @@ export async function SolutionsSection() {
             <li
               key={key}
               data-featured={index === 0 ? "" : undefined}
-              className={`${styles.card} px-8 py-7.5`}
+              className={`${styles.card} reveal px-8 py-7.5`}
+              style={{ "--stagger": index } as CSSProperties}
             >
               <Icon aria-hidden="true" strokeWidth={1.5} className="size-5" />
               <h3 className="mt-5 leading-6">{services.items[key].title}</h3>

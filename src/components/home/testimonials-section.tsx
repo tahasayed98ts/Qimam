@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react"
+
 import { SectionHeading } from "@/components/section-heading"
 import { getDictionary } from "@/i18n/dictionaries"
 
@@ -31,15 +33,21 @@ export async function TestimonialsSection() {
           {testimonials.title}
         </SectionHeading>
 
-        {/* The 32px side slivers echo the carousel framing in the design. */}
-        <div className="mt-8 rounded-lg border border-rule sm:px-8 lg:mt-10">
+        {/* The 32px side slivers echo the carousel framing in the design.
+            The strip rises in; its quotes then fade in one by one, on the
+            strip's timeline because on phones they sit in a horizontal
+            scroller (which would otherwise drive their reveal). */}
+        <div className="mt-8 reveal rounded-lg border border-rule [view-timeline:--quotes] sm:px-8 lg:mt-10">
           <ul className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain border-rule sm:border-x lg:grid lg:grid-cols-3 lg:overflow-visible">
-            {testimonials.items.map((item) => (
+            {testimonials.items.map((item, index) => (
               <li
                 key={item.author}
                 className="w-[85%] shrink-0 snap-start border-rule px-6 pt-10 pb-10 not-first:border-s sm:w-[60%] sm:px-8 lg:w-auto lg:pt-12.25 lg:pb-11"
               >
-                <figure>
+                <figure
+                  className="reveal [--reveal-distance:0rem] [--reveal-timeline:--quotes]"
+                  style={{ "--stagger": index + 1 } as CSSProperties}
+                >
                   <StarRating label={testimonials.rating} />
                   <blockquote className="mt-7.25 text-base/4.75">
                     {item.quote}

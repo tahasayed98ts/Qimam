@@ -1,4 +1,8 @@
 import { SquareUser } from "lucide-react"
+import type { CSSProperties } from "react"
+
+import { cn } from "@/lib/utils"
+import styles from "./network-diagram.module.css"
 
 /**
  * "Supported servers" illustration from the Figma Home frame: a server node
@@ -50,7 +54,7 @@ export function NetworkDiagram({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 538 270"
-      className={className}
+      className={cn(styles.diagram, className)}
       fill="none"
       aria-hidden="true"
       focusable="false"
@@ -79,9 +83,12 @@ export function NetworkDiagram({ className }: { className?: string }) {
         />
       ))}
 
-      {RINGS.map((r) => (
+      {/* Innermost ring first: RINGS runs outermost → innermost. */}
+      {RINGS.map((r, index) => (
         <circle
           key={r}
+          className={styles.ring}
+          style={{ "--stagger": RINGS.length - 1 - index } as CSSProperties}
           cx={CENTER.x}
           cy={CENTER.y}
           r={r}
@@ -92,9 +99,12 @@ export function NetworkDiagram({ className }: { className?: string }) {
         />
       ))}
 
-      {CLIENTS.map((client) => (
+      {CLIENTS.map((client, index) => (
         <path
           key={`link-${client.x}-${client.y}`}
+          className={styles.link}
+          style={{ "--stagger": index } as CSSProperties}
+          pathLength={1}
           d={linkPath(client)}
           stroke="#4a4b50"
           strokeWidth="1.5"

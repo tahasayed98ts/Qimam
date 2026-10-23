@@ -39,6 +39,14 @@ the root font size to 90% there. Give sizes in `rem` or Tailwind spacing units
 (Figma px ÷ 4, e.g. `mt-[46px]` → `mt-11.5`) so they follow that scale; keep
 `px` for hairlines, shadows and blurs only.
 
+Motion: add `reveal` to an element to fade it in as it scrolls into view
+(`SectionHeading` has it built in), and set `--stagger` (0, 1, 2…) on items
+that share a row so they arrive in turn. These are CSS scroll-driven
+animations, so there is no JavaScript; reduced-motion visitors and browsers
+without support (e.g. Firefox) see static content. Use `overflow-clip`, not
+`overflow-hidden`, around revealed content: a hidden-overflow box captures
+the reveal's timeline and stalls it. Details are in `globals.css`.
+
 ## Internationalization
 
 - Routes are `/en/...` and `/ar/...`; Arabic renders `dir="rtl"` and uses Kufam,
