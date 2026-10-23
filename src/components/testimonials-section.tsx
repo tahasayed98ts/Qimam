@@ -18,7 +18,15 @@ function StarRating({ label }: { label: string }) {
   )
 }
 
-export async function TestimonialsSection() {
+/**
+ * "What Our Clients Say" strip, shared by Home and About. About sets its
+ * section titles larger, hence `headingClassName`.
+ */
+export async function TestimonialsSection({
+  headingClassName = "lg:text-2xl",
+}: {
+  headingClassName?: string
+}) {
   const { testimonials } = await getDictionary()
 
   return (
@@ -27,7 +35,7 @@ export async function TestimonialsSection() {
       className="pb-20 lg:pt-30.25 lg:pb-30"
     >
       <div className="site-container">
-        <SectionHeading id="testimonials-title" className="lg:text-2xl">
+        <SectionHeading id="testimonials-title" className={headingClassName}>
           {testimonials.title}
         </SectionHeading>
 

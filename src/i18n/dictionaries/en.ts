@@ -118,6 +118,46 @@ const en = {
       },
     },
   },
+  about: {
+    meta: {
+      title: "About Us",
+      description:
+        "Qimam combines digital marketing, programming and artificial intelligence to help companies build a strong digital presence and grow sustainably.",
+    },
+    title: "We Create Solutions & Services That Fit Your Needs",
+    who: {
+      title: "Who Are We?",
+      body: "Qimam is a company specialized in providing integrated digital and technological solutions, combining digital marketing, programming, technology, and artificial intelligence to help companies build a strong digital presence and achieve real and sustainable growth.",
+    },
+    mission: {
+      title: "Our Mission",
+      body: "We help companies make the most of technology and digital marketing, by deeply understanding their business, analyzing their needs, and then designing and implementing integrated solutions that achieve their goals with the highest level of accuracy and efficiency.",
+    },
+    focus: {
+      title: "Our Focus",
+      // TODO(content): Figma still shows placeholder focus areas.
+      items: [
+        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+      ],
+    },
+    gallery: {
+      title: "Diverse Perspectives, World-Class Work",
+    },
+    goals: {
+      title: "Our Goals",
+      items: [
+        { title: "Build", body: "Building strong, scalable digital systems and websites" },
+        { title: "Improve", body: "Improving marketing performance and achieving a better return" },
+        { title: "Reach", body: "Increasing companies’ ability to reach their customers" },
+        { title: "Sustain", body: "Building strong and sustainable brands" },
+        { title: "Efficiency", body: "Utilizing artificial intelligence to increase efficiency" },
+        { title: "Accuracy", body: "Providing accurate data to assist in decision-making" },
+      ],
+    },
+  },
   testimonials: {
     title: "What Our Clients Say",
     rating: "Rated 5 out of 5",

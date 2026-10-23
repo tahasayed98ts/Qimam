@@ -1,0 +1,64 @@
+/*
+ * Three photos around the gallery title, from the Figma About frame: a tall
+ * centre photo and two landscape ones bleeding off the page edges (883px
+ * tall). --k is one Figma pixel (the 90% desktop scale); narrower screens
+ * scale the whole composition down and pull the side photos in so they still
+ * peek in. In Arabic the side photos swap, so "start" stays the reading start.
+ */
+.gallery {
+  --k: min(100vw / 720, 0.0625rem);
+  --side: 400;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(883 * var(--k));
+  overflow: clip;
+}
+
+@media (width >= 64rem) {
+  .gallery {
+    --k: 0.0625rem;
+    --side: 545.5;
+  }
+}
+
+.photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: clip;
+  border-radius: calc(8 * var(--k));
+  translate: calc(-50% + var(--x, 0) * var(--k)) -50%;
+}
+
+.side {
+  width: calc(417 * var(--k));
+  height: calc(278 * var(--k));
+}
+
+.center {
+  z-index: 1;
+  width: calc(402 * var(--k));
+  height: calc(603 * var(--k));
+}
+
+.start {
+  --x: calc(-1 * var(--side));
+}
+
+.end {
+  --x: var(--side);
+}
+
+.start:dir(rtl) {
+  --x: var(--side);
+}
+
+.end:dir(rtl) {
+  --x: calc(-1 * var(--side));
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+}

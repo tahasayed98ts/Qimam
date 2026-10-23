@@ -38,6 +38,10 @@
   /* Light rules of the projects table (Figma #EDEDED). */
   --color-rule-light: #ededed;
   --color-ink-dim: #98989a;
+  /* About page (Figma): focus-card rules, goal step labels, focus captions. */
+  --color-violet: #9769ce;
+  --color-violet-light: #a37ad7;
+  --color-ink-faint: #6e6e6e;
 
   /* Display type scale (Michroma line-height "auto" = 1.42) */
   --text-display-xl: 3rem;

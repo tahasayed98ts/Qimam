@@ -1,0 +1,69 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="216" height="217.5" viewBox="0 0 216 217.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Process schematic">
+<path id="Construction grid" d="M36 12.75H12.001H12V36.75M36 12.75H60M36 12.75V36.75M60 12.75H84M60 12.75V36.75M84 12.75H108M84 12.75V36.75M108 12.75H132M108 12.75V36.75M132 12.75H156M132 12.75V36.75M156 12.75H180M156 12.75V36.75M180 12.75H204V36.75M180 12.75V36.75M204 36.75V60.75M204 36.75H180M204 60.75V84.75M204 60.75H180M204 84.75V108.75M204 84.75H180M204 108.75V132.75M204 108.75H180M204 132.75V156.75M204 132.75H180M204 156.75V180.75M204 156.75H180M204 180.75V204.75H203.999H180M204 180.75H180M180 204.75H156M180 204.75V180.75M156 204.75H132M156 204.75V180.75M132 204.75H108M132 204.75V180.75M108 204.75H84M108 204.75V180.75M84 204.75H60M84 204.75V180.75M60 204.75H36M60 204.75V180.75M36 204.75H12V180.75M36 204.75V180.75M12 180.75V156.75M12 180.75H36M12 156.75V132.75M12 156.75H36M12 132.75V108.75M12 132.75H36M12 108.75V84.75M12 108.75H36M12 84.75V60.75M12 84.75H36M12 60.75V36.75M12 60.75H36M12 36.75H36M36 36.75V60.75M36 36.75H60M36 60.75V84.75M36 60.75H60M36 84.75V108.75M36 84.75H60M36 108.75V132.75M36 108.75H60M36 132.75V156.75M36 132.75H60M36 156.75V180.75M36 156.75H60M36 180.75H60M60 36.75V60.75M60 36.75H84M60 60.75V84.75M60 60.75H84M60 84.75V108.75M60 84.75H84M60 108.75V132.75M60 108.75H84M60 132.75V156.75M60 132.75H84M60 156.75V180.75M60 156.75H84M60 180.75H84M84 36.75V60.75M84 36.75H108M84 60.75V84.75M84 60.75H108M84 84.75V108.75M84 84.75H108M84 108.75V132.75M84 108.75H108M84 132.75V156.75M84 132.75H108M84 156.75V180.75M84 156.75H108M84 180.75H108M108 36.75V60.75M108 36.75H132M108 60.75V84.75M108 60.75H132M108 84.75V108.75M108 84.75H132M108 108.75V132.75M108 108.75H132M108 132.75V156.75M108 132.75H132M108 156.75V180.75M108 156.75H132M108 180.75H132M132 36.75V60.75M132 36.75H156M132 60.75V84.75M132 60.75H156M132 84.75V108.75M132 84.75H156M132 108.75V132.75M132 108.75H156M132 132.75V156.75M132 132.75H156M132 156.75V180.75M132 156.75H156M132 180.75H156M156 36.75V60.75M156 36.75H180M156 60.75V84.75M156 60.75H180M156 84.75V108.75M156 84.75H180M156 108.75V132.75M156 108.75H180M156 132.75V156.75M156 132.75H180M156 156.75V180.75M156 156.75H180M156 180.75H180M180 36.75V60.75M180 60.75V84.75M180 84.75V108.75M180 108.75V132.75M180 132.75V156.75M180 156.75V180.75" stroke="#101D33"/>
+<path id="Registration marks" d="M12 24.75V12.75H12.001H24M192 12.75H204V24.75M204 192.75V204.75H203.999H192M24 204.75H12V192.75M12 108.75H24M192 108.75H204" stroke="#224A6A"/>
+<path id="Decision routing" d="M12 12.75H12.001M203.999 204.75H204M12 108.75H36M60 108.75H84M84 108.75V60.75H144M84 108.75V156.75H144M168 60.75H192V108.75M192 108.75H204M192 108.75V156.75H168" stroke-width="1.5" stroke="#224A6A"/>
+<g id="Selected roadmap" filter="url(#filter0_d_0_19)">
+<path d="M12 12.75H12.001M203.999 204.75H204M60 108.75H108H156M156 108.75V84.75V60.75M156 108.75V132.75" stroke-width="1.5" stroke="#38BDF8"/>
+</g>
+<g id="System module" filter="url(#filter1_d_0_19)">
+<rect x="36" y="96.75" width="24" height="24" rx="2" fill="#09192D"/>
+<rect x="36.5" y="97.25" width="23" height="23" rx="1.5" stroke="#38BDF8"/>
+</g>
+<g id="System module_2" filter="url(#filter2_d_0_19)">
+<rect x="96" y="96.75" width="24" height="24" rx="2" fill="#09192D"/>
+<rect x="96.5" y="97.25" width="23" height="23" rx="1.5" stroke="#38BDF8"/>
+</g>
+<g id="System module_3" filter="url(#filter3_d_0_19)">
+<rect x="144" y="48.75" width="24" height="24" rx="2" fill="#09192D"/>
+<rect x="144.5" y="49.25" width="23" height="23" rx="1.5" stroke="#38BDF8"/>
+</g>
+<path id="System module_4" d="M146 145.25H166C166.828 145.25 167.5 145.922 167.5 146.75V166.75C167.5 167.578 166.828 168.25 166 168.25H146C145.172 168.25 144.5 167.578 144.5 166.75V146.75C144.5 145.922 145.172 145.25 146 145.25Z" fill="#060D1C" stroke="#224A6A"/>
+<rect id="Roadmap milestone" x="44" y="104.75" width="8" height="8" fill="#38BDF8"/>
+<rect id="Roadmap milestone_2" x="104" y="104.75" width="8" height="8" fill="#38BDF8"/>
+<rect id="Roadmap milestone_3" x="152" y="56.75" width="8" height="8" fill="#38BDF8"/>
+<path id="Plan guides" d="M12 12.75H12.001M203.999 204.75H204M36 180.75H84M36 180.75V176.75M36 180.75V184.75M84 180.75H132M84 180.75V176.75M84 180.75V184.75M132 180.75H168M132 180.75V176.75M132 180.75V184.75M168 180.75V176.75M168 180.75V184.75M96 36.75H120" stroke-width="1.5" stroke="#224A6A"/>
+</g>
+<defs>
+<filter id="filter0_d_0_19" x="0" y="0" width="216" height="217.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_19"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_19" result="shape"/>
+</filter>
+<filter id="filter1_d_0_19" x="24" y="84.75" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_19"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_19" result="shape"/>
+</filter>
+<filter id="filter2_d_0_19" x="84" y="84.75" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_19"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_19" result="shape"/>
+</filter>
+<filter id="filter3_d_0_19" x="132" y="36.75" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_19"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_19" result="shape"/>
+</filter>
+</defs>
+</svg>

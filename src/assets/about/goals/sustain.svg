@@ -1,0 +1,52 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="216" height="218" viewBox="0 0 216 218" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Process schematic">
+<path id="Construction grid" d="M36 13H12.001H12V37M36 13H60M36 13V37M60 13H84M60 13V37M84 13H108M84 13V37M108 13H132M108 13V37M132 13H156M132 13V37M156 13H180M156 13V37M180 13H204V37M180 13V37M204 37V61M204 37H180M204 61V85M204 61H180M204 85V109M204 85H180M204 109V133M204 109H180M204 133V157M204 133H180M204 157V181M204 157H180M204 181V205H203.999H180M204 181H180M180 205H156M180 205V181M156 205H132M156 205V181M132 205H108M132 205V181M108 205H84M108 205V181M84 205H60M84 205V181M60 205H36M60 205V181M36 205H12V181M36 205V181M12 181V157M12 181H36M12 157V133M12 157H36M12 133V109M12 133H36M12 109V85M12 109H36M12 85V61M12 85H36M12 61V37M12 61H36M12 37H36M36 37V61M36 37H60M36 61V85M36 61H60M36 85V109M36 85H60M36 109V133M36 109H60M36 133V157M36 133H60M36 157V181M36 157H60M36 181H60M60 37V61M60 37H84M60 61V85M60 61H84M60 85V109M60 85H84M60 109V133M60 109H84M60 133V157M60 133H84M60 157V181M60 157H84M60 181H84M84 37V61M84 37H108M84 61V85M84 61H108M84 85V109M84 85H108M84 109V133M84 109H108M84 133V157M84 133H108M84 157V181M84 157H108M84 181H108M108 37V61M108 37H132M108 61V85M108 61H132M108 85V109M108 85H132M108 109V133M108 109H132M108 133V157M108 133H132M108 157V181M108 157H132M108 181H132M132 37V61M132 37H156M132 61V85M132 61H156M132 85V109M132 85H156M132 109V133M132 109H156M132 133V157M132 133H156M132 157V181M132 157H156M132 181H156M156 37V61M156 37H180M156 61V85M156 61H180M156 85V109M156 85H180M156 109V133M156 109H180M156 133V157M156 133H180M156 157V181M156 157H180M156 181H180M180 37V61M180 61V85M180 85V109M180 109V133M180 133V157M180 157V181" stroke="#101D33"/>
+<path id="Registration marks" d="M12 25V13H12.001H24M192 13H204V25M204 193V205H203.999H192M24 205H12V193M12 109H24M192 109H204" stroke="#224A6A"/>
+<path id="Assembly rails" d="M12 13H12.001M203.999 205H204M12 109H36M36 109V61M36 109V157M36 61H60M36 61V37M180 61H204M180 61V157M180 61V37M12 157H36M36 157V181H180V157M156 157H180M180 157H204" stroke-width="1.5" stroke="#224A6A"/>
+<path id="Module foundation" d="M12 13H12.001M203.999 205H204M108 181L156 157V133L108 109L60 133V157L108 181ZM60 133L108 157M156 133L108 157M108 181V157" stroke-width="1.5" stroke="#224A6A"/>
+<path id="Module assembly" d="M12 13H12.001M203.999 205H204M108 145L156 121V97L108 73L60 97V121L108 145ZM60 97L108 121M156 97L108 121M108 145V121" stroke-width="2" stroke="#2563EB"/>
+<g id="Execution unit" filter="url(#filter0_d_0_48)">
+<path d="M12 13H12.001M203.999 205H204M108 109L156 85V61L108 37L60 61V85L108 109ZM60 61L108 85M156 61L108 85M108 109V85" stroke-width="2" stroke="#38BDF8" shape-rendering="crispEdges"/>
+</g>
+<g id="Build signal" filter="url(#filter1_d_0_48)">
+<path d="M12 13H12.001M203.999 205H204M92 61L102 55L112 61L124 55" stroke-width="1.5" stroke="#38BDF8"/>
+</g>
+<g id="System module" filter="url(#filter2_d_0_48)">
+<rect x="168" y="97" width="24" height="24" rx="2" fill="#09192D"/>
+<rect x="168.5" y="97.5" width="23" height="23" rx="1.5" stroke="#38BDF8"/>
+</g>
+<path id="Quality check" d="M12 13H12.001M203.999 205H204M174 109L178 113L187 104" stroke-width="1.5" stroke="#38BDF8"/>
+</g>
+<defs>
+<filter id="filter0_d_0_48" x="0" y="0" width="216" height="218" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_48"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_48" result="shape"/>
+</filter>
+<filter id="filter1_d_0_48" x="0" y="0.25" width="216" height="217.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_48"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_48" result="shape"/>
+</filter>
+<filter id="filter2_d_0_48" x="156" y="85" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="6"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.219608 0 0 0 0 0.741176 0 0 0 0 0.972549 0 0 0 0.188235 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_48"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_48" result="shape"/>
+</filter>
+</defs>
+</svg>
