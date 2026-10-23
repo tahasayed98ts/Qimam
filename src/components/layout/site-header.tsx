@@ -19,7 +19,11 @@ export async function SiteHeader() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 pt-4 lg:pt-8">
-      <div className="header-glass pointer-events-auto site-container flex h-16 items-center justify-between rounded-lg border border-hairline ps-4 pe-2 sm:h-18 sm:ps-5 sm:pe-4 lg:h-22 lg:ps-6 lg:pe-9">
+      <div
+        data-aos="fade-down"
+        data-aos-offset="0"
+        className="header-glass pointer-events-auto site-container flex h-16 items-center justify-between rounded-lg border border-hairline ps-4 pe-2 sm:h-18 sm:ps-5 sm:pe-4 lg:h-22 lg:ps-6 lg:pe-9"
+      >
         <Link href={localizePath(locale)} className="rounded-sm">
           <Image
             src={navLogo}

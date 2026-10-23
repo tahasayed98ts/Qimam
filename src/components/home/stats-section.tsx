@@ -27,6 +27,8 @@ export async function StatsSection() {
         <dl className="mt-10 grid grid-cols-1 overflow-hidden rounded-lg border border-rule sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {statOrder.map((key, index) => {
             const stat = stats.items[key]
+            // Each column's text rises in turn; the grid lines stay put.
+            const aos = { "data-aos": "fade-up", "data-aos-delay": String(index * 100) }
             return (
               <div
                 key={key}
@@ -45,13 +47,19 @@ export async function StatsSection() {
                   index > 0 && "lg:border-s"
                 )}
               >
-                <dt className="font-display text-lg leading-[1.42] uppercase sm:text-xl">
+                <dt
+                  {...aos}
+                  className="font-display text-lg leading-[1.42] uppercase sm:text-xl"
+                >
                   {stat.label}
                 </dt>
-                <dd className="mt-5 font-display text-[2rem] leading-[1.42] sm:mt-6 sm:text-[2.5rem]">
+                <dd
+                  {...aos}
+                  className="mt-5 font-display text-[2rem] leading-[1.42] sm:mt-6 sm:text-[2.5rem]"
+                >
                   {stat.value}
                 </dd>
-                <dd className="mt-5 text-sm/5 text-ink-muted sm:mt-5.5">
+                <dd {...aos} className="mt-5 text-sm/5 text-ink-muted sm:mt-5.5">
                   {stat.caption}
                 </dd>
               </div>

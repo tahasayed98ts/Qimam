@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 
+import { AosInit } from "@/components/aos-init"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { WhatsAppButton } from "@/components/layout/whatsapp-button"
@@ -8,6 +9,8 @@ import { isLocale, localeDirection, locales } from "@/i18n/config"
 import { getDictionary } from "@/i18n/dictionaries"
 import { cn } from "@/lib/utils"
 import { kufam, michroma, roboto } from "../fonts"
+// AOS first: globals.css overrides some of its rules.
+import "aos/dist/aos.css"
 import "../globals.css"
 
 export async function generateStaticParams() {
@@ -66,6 +69,7 @@ export default async function LocaleLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <WhatsAppButton label={dict.social.whatsapp} />
+        <AosInit />
       </body>
     </html>
   )

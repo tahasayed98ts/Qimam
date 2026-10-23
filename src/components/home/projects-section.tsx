@@ -39,7 +39,13 @@ export async function ProjectsSection() {
                   <p className="border-b border-rule-light px-6 py-4 text-lg font-medium text-ink-dim sm:px-10 sm:py-5 sm:text-xl/7.5">
                     {copy.category}
                   </p>
-                  <article className="px-6 pt-6 pb-12 sm:px-10 sm:pt-7.5 sm:pb-20">
+                  {/* The content slides in from its own side (the left
+                      column from the reading start); the table's rules stay
+                      put. */}
+                  <article
+                    data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                    className="px-6 pt-6 pb-12 sm:px-10 sm:pt-7.5 sm:pb-20"
+                  >
                     {/* The exported images carry their own rounded corners. */}
                     <Image
                       src={project.image}
@@ -85,17 +91,20 @@ export async function ProjectsSection() {
             })}
           </ul>
           <div className="flex justify-end border-t border-rule-light px-6 py-5 sm:px-10 sm:py-5.5">
-            <Link
-              href={localizePath(locale, "/projects")}
-              className="inline-flex items-center gap-2.5 text-xl leading-[1.45] font-medium text-link underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-accent-purple"
-            >
-              {projects.more}
-              <MoveUpRight
-                aria-hidden="true"
-                strokeWidth={2}
-                className="size-5.5 rtl:-scale-x-100"
-              />
-            </Link>
+            {/* Wrapped so the link keeps its colour transition. */}
+            <div data-aos="fade-left">
+              <Link
+                href={localizePath(locale, "/projects")}
+                className="inline-flex items-center gap-2.5 text-xl leading-[1.45] font-medium text-link underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-accent-purple"
+              >
+                {projects.more}
+                <MoveUpRight
+                  aria-hidden="true"
+                  strokeWidth={2}
+                  className="size-5.5 rtl:-scale-x-100"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

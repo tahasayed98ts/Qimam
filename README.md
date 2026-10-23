@@ -39,6 +39,15 @@ the root font size to 90% there. Give sizes in `rem` or Tailwind spacing units
 (Figma px ÷ 4, e.g. `mt-[46px]` → `mt-11.5`) so they follow that scale; keep
 `px` for hairlines, shadows and blurs only.
 
+Scroll animations use [AOS](https://github.com/michalsnik/aos), started once
+in the root layout (`components/aos-init.tsx`). Add `data-aos="fade-up"` (or
+`fade-down`, `fade-right`, `fade-left`, `fade`) and `data-aos-delay="100"`
+etc. to stagger a row; section headings rise in by default. `fade-right`
+enters from the reading start, so it mirrors in Arabic. AOS replaces
+`transition-property` on animated elements, so put `data-aos` on a wrapper,
+not on an element with its own hover transition. Reduced-motion visitors and
+browsers without JavaScript see static content (`globals.css`).
+
 ## Internationalization
 
 - Routes are `/en/...` and `/ar/...`; Arabic renders `dir="rtl"` and uses Kufam,

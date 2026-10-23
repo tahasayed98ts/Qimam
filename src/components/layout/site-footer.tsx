@@ -25,9 +25,12 @@ export async function SiteFooter() {
   return (
     <footer className="border-t border-[#2d374d] bg-footer">
       <div className="footer-container pt-16 pb-9.5 lg:pt-30">
+        {/* Logo from the reading start, links from below, the subscribe
+            column from the end. */}
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[349fr_545fr_418fr] lg:gap-0">
           <Link
             href={localizePath(locale)}
+            data-aos="fade-right"
             className="self-start justify-self-start rounded-sm sm:col-span-2 lg:col-span-1"
           >
             <Image
@@ -38,7 +41,11 @@ export async function SiteFooter() {
             />
           </Link>
 
-          <nav aria-labelledby="footer-links-title">
+          <nav
+            aria-labelledby="footer-links-title"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h2 id="footer-links-title" className="leading-6 font-semibold">
               {footer.quickLinks}
             </h2>
@@ -56,7 +63,7 @@ export async function SiteFooter() {
             </ul>
           </nav>
 
-          <div>
+          <div data-aos="fade-left" data-aos-delay="200">
             <h2 className="leading-6 font-semibold">{footer.subscribeTitle}</h2>
             <p className="mt-4.5 leading-6 text-[#d4d4d4]">
               {footer.subscribeText}

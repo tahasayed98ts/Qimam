@@ -31,15 +31,21 @@ export async function TestimonialsSection() {
           {testimonials.title}
         </SectionHeading>
 
-        {/* The 32px side slivers echo the carousel framing in the design. */}
-        <div className="mt-8 rounded-lg border border-rule sm:px-8 lg:mt-10">
+        {/* The 32px side slivers echo the carousel framing in the design.
+            The strip rises in, then its quotes fade in one by one (fade
+            only: on phones they sit in a horizontal scroller, where a
+            vertical slide would add a vertical scrollbar). */}
+        <div
+          data-aos="fade-up"
+          className="mt-8 rounded-lg border border-rule sm:px-8 lg:mt-10"
+        >
           <ul className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain border-rule sm:border-x lg:grid lg:grid-cols-3 lg:overflow-visible">
-            {testimonials.items.map((item) => (
+            {testimonials.items.map((item, index) => (
               <li
                 key={item.author}
                 className="w-[85%] shrink-0 snap-start border-rule px-6 pt-10 pb-10 not-first:border-s sm:w-[60%] sm:px-8 lg:w-auto lg:pt-12.25 lg:pb-11"
               >
-                <figure>
+                <figure data-aos="fade" data-aos-delay={String(200 + index * 150)}>
                   <StarRating label={testimonials.rating} />
                   <blockquote className="mt-7.25 text-base/4.75">
                     {item.quote}

@@ -36,9 +36,11 @@ export async function SolutionsSection() {
         </SectionHeading>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-12 lg:mt-22.25 lg:grid-cols-[minmax(0,624fr)_minmax(0,618fr)] lg:gap-5.5">
-          <NetworkDiagram className="mx-auto w-full max-w-134.5" />
+          <div data-aos="fade-right">
+            <NetworkDiagram className="mx-auto w-full max-w-134.5" />
+          </div>
 
-          <div>
+          <div data-aos="fade-left" data-aos-delay="100">
             <p className="flex items-center gap-2.5 text-link">
               <Cpu aria-hidden="true" strokeWidth={1.5} className="size-6" />
               {solutions.badge}
@@ -63,6 +65,7 @@ export async function SolutionsSection() {
           alt={solutions.showcaseAlt}
           placeholder="blur"
           sizes="(min-width: 1344px) 1264px, calc(100vw - 48px)"
+          data-aos="fade-up"
           className="mt-16 w-full rounded-[0.1875rem] lg:mt-22"
         />
 
@@ -70,17 +73,24 @@ export async function SolutionsSection() {
           aria-label={services.label}
           className={`${styles.list} mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4`}
         >
+          {/* The cards rise in turn. AOS sits on the <li> so the card keeps
+              its own hover transition. */}
           {serviceIcons.map(({ key, icon: Icon }, index) => (
             <li
               key={key}
-              data-featured={index === 0 ? "" : undefined}
-              className={`${styles.card} px-8 py-7.5`}
+              data-aos="fade-up"
+              data-aos-delay={String(index * 100)}
             >
-              <Icon aria-hidden="true" strokeWidth={1.5} className="size-5" />
-              <h3 className="mt-5 leading-6">{services.items[key].title}</h3>
-              <p className="mt-5 text-sm/5 text-ink/65">
-                {services.items[key].body}
-              </p>
+              <div
+                data-featured={index === 0 ? "" : undefined}
+                className={`${styles.card} h-full px-8 py-7.5`}
+              >
+                <Icon aria-hidden="true" strokeWidth={1.5} className="size-5" />
+                <h3 className="mt-5 leading-6">{services.items[key].title}</h3>
+                <p className="mt-5 text-sm/5 text-ink/65">
+                  {services.items[key].body}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
