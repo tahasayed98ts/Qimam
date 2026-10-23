@@ -25,13 +25,10 @@ export async function SiteFooter() {
   return (
     <footer className="border-t border-[#2d374d] bg-footer">
       <div className="footer-container pt-16 pb-9.5 lg:pt-30">
-        {/* The columns rise in one after another. At the end of the page the
-            default reveal range can't always be scrolled through, so each
-            finishes once fully in view (--reveal-end). */}
-        <div className="grid grid-cols-1 gap-12 [--reveal-end:entry_100%] sm:grid-cols-2 lg:grid-cols-[349fr_545fr_418fr] lg:gap-0">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[349fr_545fr_418fr] lg:gap-0">
           <Link
             href={localizePath(locale)}
-            className="self-start justify-self-start reveal rounded-sm sm:col-span-2 lg:col-span-1"
+            className="self-start justify-self-start rounded-sm sm:col-span-2 lg:col-span-1"
           >
             <Image
               src={navLogo}
@@ -41,7 +38,7 @@ export async function SiteFooter() {
             />
           </Link>
 
-          <nav aria-labelledby="footer-links-title" className="reveal [--stagger:1]">
+          <nav aria-labelledby="footer-links-title">
             <h2 id="footer-links-title" className="leading-6 font-semibold">
               {footer.quickLinks}
             </h2>
@@ -59,7 +56,7 @@ export async function SiteFooter() {
             </ul>
           </nav>
 
-          <div className="reveal [--stagger:2]">
+          <div>
             <h2 className="leading-6 font-semibold">{footer.subscribeTitle}</h2>
             <p className="mt-4.5 leading-6 text-[#d4d4d4]">
               {footer.subscribeText}

@@ -1,7 +1,6 @@
 import { MoveUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import type { CSSProperties } from "react"
 
 import { SectionHeading } from "@/components/section-heading"
 import { featuredProjects } from "@/content/projects"
@@ -21,7 +20,7 @@ export async function ProjectsSection() {
       <div className="site-container">
         <SectionHeading id="projects-title">{projects.title}</SectionHeading>
 
-        <div className="mt-10 overflow-clip rounded-lg border border-rule-light lg:mt-14">
+        <div className="mt-10 overflow-hidden rounded-lg border border-rule-light lg:mt-14">
           {/* Each project spans two subgrid rows (category, body) so the
               category rules line up across both columns. */}
           <ul className="grid grid-cols-1 md:grid-cols-2">
@@ -40,12 +39,7 @@ export async function ProjectsSection() {
                   <p className="border-b border-rule-light px-6 py-4 text-lg font-medium text-ink-dim sm:px-10 sm:py-5 sm:text-xl/7.5">
                     {copy.category}
                   </p>
-                  {/* The content rises in (the right column a beat later);
-                      the table's rules stay put. */}
-                  <article
-                    className="reveal px-6 pt-6 pb-12 sm:px-10 sm:pt-7.5 sm:pb-20"
-                    style={{ "--stagger": index % 2 } as CSSProperties}
-                  >
+                  <article className="px-6 pt-6 pb-12 sm:px-10 sm:pt-7.5 sm:pb-20">
                     {/* The exported images carry their own rounded corners. */}
                     <Image
                       src={project.image}
@@ -93,7 +87,7 @@ export async function ProjectsSection() {
           <div className="flex justify-end border-t border-rule-light px-6 py-5 sm:px-10 sm:py-5.5">
             <Link
               href={localizePath(locale, "/projects")}
-              className="inline-flex reveal items-center gap-2.5 text-xl leading-[1.45] font-medium text-link underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-accent-purple"
+              className="inline-flex items-center gap-2.5 text-xl leading-[1.45] font-medium text-link underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-accent-purple"
             >
               {projects.more}
               <MoveUpRight
