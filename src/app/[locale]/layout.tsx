@@ -50,9 +50,12 @@ export default async function LocaleLayout({
   const dict = await getDictionary()
 
   return (
+    // data-scroll-behavior: page changes jump to the top instead of
+    // smooth-scrolling there (globals.css keeps smooth in-page scrolling).
     <html
       lang={locale}
       dir={localeDirection[locale]}
+      data-scroll-behavior="smooth"
       className={cn(michroma.variable, roboto.variable, kufam.variable)}
     >
       {/* Extensions such as Grammarly add attributes to <body> before React
