@@ -125,6 +125,15 @@ const en = {
       },
     },
   },
+  // The articles themselves live in src/content/articles.ts.
+  articles: {
+    meta: {
+      title: "Articles",
+      description:
+        "Articles from Qimam on software development, artificial intelligence, mobile apps, user experience, design strategy and branding.",
+    },
+    title: "Articles",
+  },
   // Labels of the project details pages; each case study's own copy lives in
   // src/content/case-studies.
   projectDetails: {

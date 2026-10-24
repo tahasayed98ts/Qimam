@@ -12,6 +12,15 @@ export const localeDirection: Record<Locale, "ltr" | "rtl"> = {
   ar: "rtl",
 }
 
+/**
+ * Intl locales for dates: day, month, year in English; Gregorian months with
+ * Western digits in Arabic, as elsewhere on the site.
+ */
+export const dateLocale: Record<Locale, string> = {
+  en: "en-GB",
+  ar: "ar-u-ca-gregory-nu-latn",
+}
+
 export function isLocale(value: string | undefined): value is Locale {
   return locales.includes(value as Locale)
 }

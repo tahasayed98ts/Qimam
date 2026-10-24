@@ -52,6 +52,9 @@
   --color-rule-dark: #2f3530;
   --color-frame-line: #5e5e5e;
   --color-frame-fill: rgb(47 11 120 / 0.2);
+  /* Articles page (Figma): card dates and excerpts. */
+  --color-ink-date: #a5a3a3;
+  --color-ink-light: #ededed;
 
   /* Display type scale (Michroma line-height "auto" = 1.42) */
   --text-display-xl: 3rem;
