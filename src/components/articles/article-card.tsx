@@ -10,7 +10,7 @@ const trim = "[text-box:trim-both_cap_alphabetic]"
 
 /**
  * An article's card: photo, title, date, excerpt and a "Learn More" link to
- * the article. Body text is title-cased as in Figma.
+ * the article, once it has one. Body text is title-cased as in Figma.
  */
 export function ArticleCard({
   article,
@@ -47,7 +47,7 @@ export function ArticleCard({
         <h2 className={`font-display text-2xl leading-[normal] capitalize ${trim}`}>
           {title}
         </h2>
-        <p className={`text-sm font-medium text-ink-date ${trim}`}>
+        <p className={`text-sm font-medium text-ink-gray ${trim}`}>
           <time dateTime={article.date}>{date}</time>
         </p>
       </div>
@@ -55,21 +55,24 @@ export function ArticleCard({
       <p className={`pb-6 leading-6 text-ink-light capitalize ${trim}`}>
         {excerpt}
       </p>
-      <Link
-        href={localizePath(locale, `/articles/${article.slug}`)}
-        aria-label={`${learnMore}: ${title}`}
-        className="mt-auto flex h-10 items-center gap-2 self-end rounded-[0.125rem] px-6 font-semibold underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-link"
-      >
-        {learnMore}
-        {/* The Figma icon as a mask, so it takes the link's colour. */}
-        <span
-          aria-hidden="true"
-          className="size-6 shrink-0 bg-current rtl:-scale-x-100"
-          style={{
-            mask: `url(${arrowNarrowRight.src}) center / contain no-repeat`,
-          }}
-        />
-      </Link>
+      {/* Only articles with their text written get a page to link to. */}
+      {article.body && (
+        <Link
+          href={localizePath(locale, `/articles/${article.slug}`)}
+          aria-label={`${learnMore}: ${title}`}
+          className="mt-auto flex h-10 items-center gap-2 self-end rounded-[0.125rem] px-6 font-semibold underline decoration-from-font underline-offset-auto transition-colors [text-decoration-skip-ink:none] [text-underline-position:from-font] hover:text-link"
+        >
+          {learnMore}
+          {/* The Figma icon as a mask, so it takes the link's colour. */}
+          <span
+            aria-hidden="true"
+            className="size-6 shrink-0 bg-current rtl:-scale-x-100"
+            style={{
+              mask: `url(${arrowNarrowRight.src}) center / contain no-repeat`,
+            }}
+          />
+        </Link>
+      )}
     </article>
   )
 }

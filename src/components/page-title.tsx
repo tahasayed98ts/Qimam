@@ -1,14 +1,19 @@
-import type { ComponentProps } from "react"
+import type { HTMLAttributes } from "react"
 
 import { cn } from "@/lib/utils"
 
 /**
  * An inner page's centred Michroma title (48px on desktop in Figma). It
- * rises in as the page opens.
+ * rises in as the page opens. Pass `as="p"` where the page's own heading is
+ * another element (an article page under its "Articles" title).
  */
-export function PageTitle({ className, ...props }: ComponentProps<"h1">) {
+export function PageTitle({
+  as: Tag = "h1",
+  className,
+  ...props
+}: HTMLAttributes<HTMLElement> & { as?: "h1" | "p" }) {
   return (
-    <h1
+    <Tag
       data-aos="fade-up"
       data-aos-offset="0"
       className={cn(

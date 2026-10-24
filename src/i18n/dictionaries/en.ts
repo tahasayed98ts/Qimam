@@ -133,6 +133,7 @@ const en = {
         "Articles from Qimam on software development, artificial intelligence, mobile apps, user experience, design strategy and branding.",
     },
     title: "Articles",
+    sections: "Article sections",
   },
   // Labels of the project details pages; each case study's own copy lives in
   // src/content/case-studies.

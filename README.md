@@ -30,13 +30,13 @@ It's optional: on Vercel it defaults to the project's production domain
 | `src/components/services/` | Services sections (`/services`): title and service cards, the "Our Process" timeline (alternating around a spine on desktop, single-sided below), and the industries grid. |
 | `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px. Each arrow opens the project's details page, or its live site until it has one. |
 | `src/components/case-study/` | Project details pages (`/projects/[id]`): intro and key facts, screenshots in tinted frames (`showcase.tsx`: Figma's crops, scaled with the frame), overview, context and challenge, approach, and the "A closer look" strip (`gallery-carousel.tsx`, the only client component). |
-| `src/components/articles/` | The article card of `/articles`: photo, title, date, excerpt and a "Learn More" link to `/articles/[slug]`. |
+| `src/components/articles/` | Articles: the card of `/articles` (photo, title, date, excerpt, and a "Learn More" link once the article has its text), and the article page (`/articles/[slug]`): `article-body.tsx` sets an article's text blocks, `article-toc.tsx` is the sticky sections box that follows the reader (desktop only). |
 | `src/components/page-backdrop.tsx` | Glow background of the inner pages (CSS gradients fitted to the Figma blurs); About and Services also get its two lower hazes. `page-title.tsx` is their shared centred title. |
 | `src/components/ui/` | shadcn/ui components, customised for the Qimam palette. |
-| `src/content/` | Content data: projects and partner logos (copy for these lives in the dictionaries), and `case-studies/`, one module per project with a details page, holding its screenshots, their Figma framing and its English and Arabic copy. `/projects` lists every project; Home features the first four. `articles.ts` lists the articles: slug, date, photo, and English and Arabic title and excerpt. |
+| `src/content/` | Content data: projects and partner logos (copy for these lives in the dictionaries), and `case-studies/`, one module per project with a details page, holding its screenshots, their Figma framing and its English and Arabic copy. `/projects` lists every project; Home features the first four. `articles.ts` lists the articles: slug, date, photo, English and Arabic title and excerpt, and, for articles with a page, their text as headings, paragraphs and lists. |
 | `src/assets/home/` | Home images: project images exported from Figma (also used on `/projects`); the showcase and partner logos are cropped from the Home export. |
 | `src/assets/projects/` | Project details screenshots exported from Figma, one folder per project. |
-| `src/assets/articles/` | Article photos exported from Figma (saved as JPEGs up to 1200px wide) and the cards' arrow icon. |
+| `src/assets/articles/` | Article photos exported from Figma, saved as JPEGs 1200px wide (2000px for one that also heads its article page), and the cards' arrow icon. |
 | `src/assets/about/` | About images exported from Figma: the three gallery photos and the six goal schematics (SVG). |
 | `src/assets/services/` | Services assets exported from Figma: timeline connectors, industry icons and the industry glow. (The timeline icons are Lucide, as in the design.) |
 | `images/` | Supplied brand assets (imported via the `@images/*` alias). |
@@ -86,7 +86,8 @@ replaced with differently placed strands, refit the helix constants in
 
 Home was synced with the live Figma file (node `142:2369`), About with node
 `142:2711`, Services with `142:2944`, Projects with `142:3268`, the ArabFly
-details page with `322:343`, Articles with `142:3625`. Small copy fixes
+details page with `322:343`, Articles with `142:3625`, the article page with
+`142:3725`. Small copy fixes
 against Figma: About's title reads "That Fit Your Needs" (as on Home), the
 gallery title gets the missing space after its comma, and the sixth goal's
 label is "06" like the others (Figma: "Step 06"); on Services, "Automitive" →
@@ -98,7 +99,10 @@ flights and hotels". The third gallery shot drops the template's "casa oliva"
 mock-up left behind it in Figma and is framed like the second. On Articles,
 "learn More" reads "Learn More", dates are set in Roboto (Figma uses Poppins,
 which the site doesn't load), and the cards fit the 1264px content column
-(Figma's grid runs 17px wider).
+(Figma's grid runs 17px wider). On the article page, the text's leftover
+Markdown ("#### Common Types of AI:", "**Machine Learning AI**") is set as
+headings, and the sections box lists those headings instead of Figma's
+"First Section / sub-section" placeholders.
 Placeholder content that should be replaced or confirmed before launch (each
 spot is marked `TODO` in code):
 
@@ -115,9 +119,10 @@ spot is marked `TODO` in code):
   in Figma ("Introduction and featured work"…) and now describe the screens;
   its gallery screenshots are small (496×226), so sharper exports would help.
 - The six articles are Figma's samples (titles, dates, excerpts, stock
-  photos) without article text, so their "Learn More" links lead to the
-  localized 404 until the article page is built; one is dated 28 Nov 2026,
-  in the future.
+  photos); one is dated 28 Nov 2026, in the future. Only "Artificial
+  Intelligence" has its text (from the article frame), so only its card has a
+  "Learn More" link; a card gets one once its article has a `body` in
+  `src/content/articles.ts`.
 
 - Social profile URLs and the WhatsApp number (`src/config/site.ts`).
 - "Trusted by" company logos, stats figures, and the testimonials (still Lorem
