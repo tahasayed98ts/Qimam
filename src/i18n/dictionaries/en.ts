@@ -92,6 +92,11 @@ const en = {
     },
   },
   projects: {
+    meta: {
+      title: "Our Projects",
+      description:
+        "See Qimam's projects: platforms for travel, loyalty points and Hajj and Umrah trips, and a website for a real estate and contracting company.",
+    },
     title: "Our Projects",
     more: "More Projects",
     viewProject: "View project:",

@@ -1,9 +1,9 @@
 /*
- * Inner-page background shared by the About and Services Figma frames: three
- * blurred circles along the top (blue, lavender, purple) and two faint purple
- * hazes, mid-left and lower-right (at 1401.5 and 2626.5 Figma px; placed as a
- * share of the frame height, --page-height, so they stay mid-page and low on
- * any screen). Each blur is a radial gradient whose stops follow the exact
+ * Inner-page background from the About, Services and Projects Figma frames:
+ * three blurred circles along the top (blue, lavender, purple) and, on About
+ * and Services, two faint purple hazes, mid-left and lower-right (at 1401.5
+ * and 2626.5 Figma px; placed as a share of the frame height, --page-height,
+ * so they stay mid-page and low on any screen). Each blur is a radial gradient whose stops follow the exact
  * profile of a blurred disk, so it looks the same as Figma's SVG but paints
  * far cheaper than a 250px blur filter.
  * --g is one Figma pixel: the 90% desktop scale, shrinking on narrow screens.

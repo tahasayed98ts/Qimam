@@ -16,11 +16,14 @@ export type Project = {
 }
 
 /**
- * Featured projects on Home, in Figma order (images exported from Figma).
- * Localized category and description live in the dictionaries under
- * `projects.items[id]`.
+ * All projects, listed on the Projects page in Figma's Home order (images
+ * exported from Figma). Localized category and description live in the
+ * dictionaries under `projects.items[id]`.
+ *
+ * TODO(content): add Qimam's other projects. Figma's Projects frame only has
+ * template placeholders, so /projects lists the same four as Home for now.
  */
-export const featuredProjects: Project[] = [
+export const projects: Project[] = [
   {
     id: "arabfly",
     name: "ArabFly",
@@ -46,3 +49,6 @@ export const featuredProjects: Project[] = [
     image: amrAli,
   },
 ]
+
+/** The four projects featured on Home. */
+export const featuredProjects = projects.slice(0, 4)

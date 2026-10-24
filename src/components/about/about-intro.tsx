@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/page-title"
 import { SectionHeading } from "@/components/section-heading"
 import { getDictionary } from "@/i18n/dictionaries"
 
@@ -13,14 +14,7 @@ export async function AboutIntro() {
       aria-labelledby="about-title"
       className="site-container pt-32 lg:pt-58"
     >
-      <h1
-        id="about-title"
-        data-aos="fade-up"
-        data-aos-offset="0"
-        className="mx-auto max-w-254.5 text-center font-display text-[2rem] leading-[1.42] max-lg:text-balance md:text-[2.5rem] xl:text-display-xl"
-      >
-        {about.title}
-      </h1>
+      <PageTitle id="about-title">{about.title}</PageTitle>
 
       {/* Each column slides in from its own side. */}
       <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-6 lg:mt-22">

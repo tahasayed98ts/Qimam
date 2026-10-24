@@ -28,10 +28,11 @@ It's optional: on Vercel it defaults to the project's production domain
 | `src/components/home/` | Home sections. `hero/` holds the light-beam backdrop and the Three.js strands. |
 | `src/components/about/` | About sections (`/about`): intro, photo gallery, goals grid. Testimonials are shared with Home (`components/testimonials-section.tsx`). |
 | `src/components/services/` | Services sections (`/services`): title and service cards, the "Our Process" timeline (alternating around a spine on desktop, single-sided below), and the industries grid. |
-| `src/components/page-backdrop.tsx` | Glow background shared by About and Services (CSS gradients fitted to the Figma blurs). |
+| `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px. |
+| `src/components/page-backdrop.tsx` | Glow background of the inner pages (CSS gradients fitted to the Figma blurs); About and Services also get its two lower hazes. `page-title.tsx` is their shared centred title. |
 | `src/components/ui/` | shadcn/ui components, customised for the Qimam palette. |
-| `src/content/` | Non-localized content data (featured projects, partner logos). |
-| `src/assets/home/` | Home images: project images exported from Figma; the showcase and partner logos are cropped from the Home export. |
+| `src/content/` | Non-localized content data (projects, partner logos). `/projects` lists every project; Home features the first four. |
+| `src/assets/home/` | Home images: project images exported from Figma (also used on `/projects`); the showcase and partner logos are cropped from the Home export. |
 | `src/assets/about/` | About images exported from Figma: the three gallery photos and the six goal schematics (SVG). |
 | `src/assets/services/` | Services assets exported from Figma: timeline connectors, industry icons and the industry glow. (The timeline icons are Lucide, as in the design.) |
 | `images/` | Supplied brand assets (imported via the `@images/*` alias). |
@@ -80,17 +81,22 @@ replaced with differently placed strands, refit the helix constants in
 ## Content still to confirm
 
 Home was synced with the live Figma file (node `142:2369`), About with node
-`142:2711`, Services with `142:2944`. Small copy fixes against Figma: About's
-title reads "That Fit Your Needs" (as on Home), the gallery title gets the
-missing space after its comma, and the sixth goal's label is "06" like the
-others (Figma: "Step 06"); on Services, "Automitive" → "Automotive",
-"Professional Sevice" → "Professional Services", and a stray "•" is dropped
-from "Dashboards & Admin Panels".
+`142:2711`, Services with `142:2944`, Projects with `142:3268`. Small copy
+fixes against Figma: About's title reads "That Fit Your Needs" (as on Home),
+the gallery title gets the missing space after its comma, and the sixth goal's
+label is "06" like the others (Figma: "Step 06"); on Services, "Automitive" →
+"Automotive", "Professional Sevice" → "Professional Services", and a stray "•"
+is dropped from "Dashboards & Admin Panels".
 Placeholder content that should be replaced or confirmed before launch (each
 spot is marked `TODO` in code):
 
 - About's four "Our Focus" cards (all "Supported Servers" + Lorem ipsum in
   Figma).
+- The Projects frame still holds template projects (ByBit, Fitgo,
+  EventMasters, ProTech Solutions with Lorem ipsum, repeated over four rows),
+  so `/projects` lists the real projects from `src/content/projects.ts`: the
+  same four as Home until more are added (each needs an image, an entry there
+  and its category and description in both dictionaries).
 
 - Social profile URLs and the WhatsApp number (`src/config/site.ts`).
 - "Trusted by" company logos, stats figures, and the testimonials (still Lorem

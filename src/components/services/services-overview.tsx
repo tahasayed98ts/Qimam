@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/page-title"
 import { getDictionary } from "@/i18n/dictionaries"
 
 /** Services page title and the six service cards (two columns from md). */
@@ -9,14 +10,7 @@ export async function ServicesOverview() {
       aria-labelledby="services-title"
       className="site-container pt-32 lg:pt-58"
     >
-      <h1
-        id="services-title"
-        data-aos="fade-up"
-        data-aos-offset="0"
-        className="mx-auto max-w-254.5 text-center font-display text-[2rem] leading-[1.42] max-lg:text-balance md:text-[2.5rem] xl:text-display-xl"
-      >
-        {servicesPage.title}
-      </h1>
+      <PageTitle id="services-title">{servicesPage.title}</PageTitle>
 
       {/* Left-column cards enter from the reading start, the others from
           the end. Padding less the border = Figma's inside stroke. */}
