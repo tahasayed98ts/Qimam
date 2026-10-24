@@ -1,0 +1,39 @@
+/*
+ * The shots strip runs to the edges of the page, while its padding (and the
+ * snap padding) lines the shots up with the content column. Scrollbars are
+ * hidden: the arrows and the progress bar show where you are.
+ */
+.track {
+  --edge: max(var(--gutter), (100% - var(--container-site)) / 2);
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--edge);
+  padding-inline: var(--edge);
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.shot {
+  flex: none;
+  width: 85%;
+  scroll-snap-align: start;
+}
+
+@media (width >= 40rem) {
+  .shot {
+    width: 62%;
+  }
+}
+
+/* 590px in the 1264px Figma column. */
+@media (width >= 64rem) {
+  .shot {
+    width: 36.875rem;
+  }
+}

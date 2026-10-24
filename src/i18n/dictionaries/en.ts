@@ -100,6 +100,8 @@ const en = {
     title: "Our Projects",
     more: "More Projects",
     viewProject: "View project:",
+    visitSite: "Visit the live site:",
+    newTab: "(opens in a new tab)",
     items: {
       arabfly: {
         category: "Loyalty Points",
@@ -121,6 +123,29 @@ const en = {
         description:
           "Amr Ali is a contracting and general supplies company specializing in residential, commercial, and industrial construction. With expertise in engineering, interior design, and finishing, the company delivers integrated solutions focused on quality and reliability across Egypt and Saudi Arabia.",
       },
+    },
+  },
+  // Labels of the project details pages; each case study's own copy lives in
+  // src/content/case-studies.
+  projectDetails: {
+    back: "Back to Projects",
+    facts: {
+      industry: "Industry",
+      services: "Services",
+      year: "Year",
+      platform: "Platform",
+    },
+    chapters: {
+      overview: "Overview",
+      challenge: "Context & Challenge",
+      approach: "Our Approach",
+    },
+    gallery: {
+      label: "The project in frames",
+      title: "A closer look.",
+      shots: "Project screens",
+      previous: "Previous screen",
+      next: "Next screen",
     },
   },
   about: {

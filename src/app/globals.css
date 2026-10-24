@@ -44,6 +44,14 @@
   --color-ink-faint: #6e6e6e;
   /* Services page (Figma): service card fill. */
   --color-panel: #0b1220;
+  /* Project details pages (Figma): warm titles, pale fact values, sage body
+     copy, dark rules, and the tinted frames around screenshots. */
+  --color-ink-warm: #f5f2ec;
+  --color-ink-pale: #e7ece8;
+  --color-ink-sage: #a7b0a6;
+  --color-rule-dark: #2f3530;
+  --color-frame-line: #5e5e5e;
+  --color-frame-fill: rgb(47 11 120 / 0.2);
 
   /* Display type scale (Michroma line-height "auto" = 1.42) */
   --text-display-xl: 3rem;

@@ -3,10 +3,22 @@ import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
 
+import { hasCaseStudy } from "@/content/case-studies"
 import type { Project } from "@/content/projects"
 import { localizePath } from "@/i18n/config"
 import { getDictionary, getLocale } from "@/i18n/dictionaries"
 import { cn } from "@/lib/utils"
+
+const arrowButton =
+  "grid size-11.5 shrink-0 place-items-center rounded-[0.375rem] bg-[#272727] text-link transition-colors hover:bg-[#333]"
+
+const arrow = (
+  <MoveUpRight
+    aria-hidden="true"
+    strokeWidth={2}
+    className="size-5.5 rtl:-scale-x-100"
+  />
+)
 
 /**
  * The bordered projects table shared by Home and the Projects page: each
@@ -88,17 +100,29 @@ export async function ProjectsTable({
                       </p>
                     )}
                   </div>
-                  <Link
-                    href={localizePath(locale, `/projects/${project.id}`)}
-                    aria-label={`${copy.viewProject} ${project.name}`}
-                    className="grid size-11.5 shrink-0 place-items-center rounded-[0.375rem] bg-[#272727] text-link transition-colors hover:bg-[#333]"
-                  >
-                    <MoveUpRight
-                      aria-hidden="true"
-                      strokeWidth={2}
-                      className="size-5.5 rtl:-scale-x-100"
-                    />
-                  </Link>
+                  {/* The project's page once it has one; until then its
+                      live site. */}
+                  {hasCaseStudy(project.id) ? (
+                    <Link
+                      href={localizePath(locale, `/projects/${project.id}`)}
+                      aria-label={`${copy.viewProject} ${project.name}`}
+                      className={arrowButton}
+                    >
+                      {arrow}
+                    </Link>
+                  ) : (
+                    project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${copy.visitSite} ${project.name} ${copy.newTab}`}
+                        className={arrowButton}
+                      >
+                        {arrow}
+                      </a>
+                    )
+                  )}
                 </div>
                 <p className="mt-6 leading-6 text-ink-dim">{description}</p>
               </article>
