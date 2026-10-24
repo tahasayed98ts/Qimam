@@ -158,6 +158,69 @@ const en = {
       ],
     },
   },
+  servicesPage: {
+    meta: {
+      title: "Services",
+      description:
+        "Web and mobile development, UI/UX and branding, ERP systems, AI automation and digital marketing, built to launch, scale and evolve.",
+    },
+    title: "Software Development Services Built To Launch, Scale, And Evolve",
+    items: [
+      {
+        title: "Web Development",
+        points: ["Websites & Landing Pages", "Dashboards & Admin Panels", "Backend & APIs"],
+      },
+      {
+        title: "Mobile App Development",
+        points: ["Android & iOS Apps", "Cross-Platform Solutions", "App Maintenance & Support"],
+      },
+      {
+        title: "UI/UX & Branding",
+        points: ["UI/UX Design", "Logos & Visual Identity", "Brand Strategy & Guidelines"],
+      },
+      {
+        title: "ERP & Business Systems",
+        points: ["ERP & Odoo Solutions", "HR & Employee Management", "Attendance & Fingerprint Systems"],
+      },
+      {
+        title: "AI & Automation",
+        points: ["AI-Powered Solutions", "Business Process Automation", "Intelligent Workflows"],
+      },
+      {
+        title: "Digital Marketing",
+        points: ["Digital Marketing Strategy", "SEO & Search Visibility", "Social Media & Paid Ads"],
+      },
+    ],
+    process: {
+      title: "Our Process",
+      step: "Step",
+      steps: [
+        { title: "Discover", body: "Understand goals, users, and the current landscape to define the right problem to solve." },
+        { title: "Analyze", body: "Review data, systems, and constraints to turn assumptions into informed decisions." },
+        { title: "Strategize", body: "Align priorities, define the roadmap, and create a plan that connects vision to execution." },
+        { title: "Execute", body: "Build, test, and deliver with a focus on quality, speed, and measurable progress." },
+        { title: "Measure", body: "Track outcomes, validate assumptions, and turn launch data into actionable insights." },
+        { title: "Optimize", body: "Refine, iterate, and improve performance so the solution keeps delivering value over time." },
+      ],
+    },
+    industries: {
+      title: "Industries",
+      items: {
+        realEstate: "Real Estate",
+        education: "Education & Training",
+        eCommerce: "E-Commerce",
+        retail: "Retail",
+        automotive: "Automotive",
+        professionalServices: "Professional Services",
+        healthcare: "Healthcare",
+        hospitality: "Hospitality",
+        technology: "Technology",
+        b2b: "B2B Businesses",
+        startups: "Startups",
+        growingBusinesses: "Growing Businesses",
+      },
+    },
+  },
   testimonials: {
     title: "What Our Clients Say",
     rating: "Rated 5 out of 5",

@@ -26,11 +26,14 @@ It's optional: on Vercel it defaults to the project's production domain
 | `src/i18n/` | Locale config, `getDictionary()` (reads the `[locale]` root param) and the `en`/`ar` dictionaries. `ar` is typed against `en`, so missing keys fail type-checking. |
 | `src/components/layout/` | Header, language switcher, menu sheet, footer, WhatsApp tab. |
 | `src/components/home/` | Home sections. `hero/` holds the light-beam backdrop and the Three.js strands. |
-| `src/components/about/` | About sections (`/about`): intro, photo gallery, goals grid, and the glow backdrop (CSS gradients fitted to the Figma blurs). Testimonials are shared with Home (`components/testimonials-section.tsx`). |
+| `src/components/about/` | About sections (`/about`): intro, photo gallery, goals grid. Testimonials are shared with Home (`components/testimonials-section.tsx`). |
+| `src/components/services/` | Services sections (`/services`): title and service cards, the "Our Process" timeline (alternating around a spine on desktop, single-sided below), and the industries grid. |
+| `src/components/page-backdrop.tsx` | Glow background shared by About and Services (CSS gradients fitted to the Figma blurs). |
 | `src/components/ui/` | shadcn/ui components, customised for the Qimam palette. |
 | `src/content/` | Non-localized content data (featured projects, partner logos). |
 | `src/assets/home/` | Home images: project images exported from Figma; the showcase and partner logos are cropped from the Home export. |
 | `src/assets/about/` | About images exported from Figma: the three gallery photos and the six goal schematics (SVG). |
+| `src/assets/services/` | Services assets exported from Figma: timeline connectors, industry icons and the industry glow. (The timeline icons are Lucide, as in the design.) |
 | `images/` | Supplied brand assets (imported via the `@images/*` alias). |
 
 Design tokens (palette, fonts, type scale, container widths) live in
@@ -77,9 +80,12 @@ replaced with differently placed strands, refit the helix constants in
 ## Content still to confirm
 
 Home was synced with the live Figma file (node `142:2369`), About with node
-`142:2711`. Small copy fixes against Figma: About's title reads "That Fit Your
-Needs" (as on Home), the gallery title gets the missing space after its comma,
-and the sixth goal's label is "06" like the others (Figma: "Step 06").
+`142:2711`, Services with `142:2944`. Small copy fixes against Figma: About's
+title reads "That Fit Your Needs" (as on Home), the gallery title gets the
+missing space after its comma, and the sixth goal's label is "06" like the
+others (Figma: "Step 06"); on Services, "Automitive" → "Automotive",
+"Professional Sevice" → "Professional Services", and a stray "•" is dropped
+from "Dashboards & Admin Panels".
 Placeholder content that should be replaced or confirmed before launch (each
 spot is marked `TODO` in code):
 

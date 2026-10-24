@@ -1,0 +1,131 @@
+/*
+ * "Our Process" timeline. Phones and tablets: one column, with the spine
+ * running down the reading-start side through the nodes. Desktop: the Figma
+ * layout (960px): a central spine, one 160px row per step, and cards
+ * alternating sides, each joined to its node by a circuit-trace connector.
+ * Card offsets (--arm-top) and connector positions come from Figma; logical
+ * properties mirror it all in Arabic.
+ */
+.timeline {
+  position: relative;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+}
+
+.spine,
+.step:not(:last-child)::before {
+  background: rgb(104 145 234 / 0.65);
+  box-shadow: 0 0 12px rgb(104 145 234 / 0.4);
+}
+
+/* Phones/tablets: a spine segment from each node to the next. */
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(2rem - 1px);
+  top: 2rem;
+  width: 2px;
+  height: calc(100% + 2rem);
+}
+
+.spine {
+  display: none;
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  background: linear-gradient(to bottom, var(--color-link), #0d3489);
+  box-shadow: 0 0 6.55px var(--color-link);
+}
+
+.branch {
+  display: none;
+}
+
+@media (width >= 64rem) {
+  .timeline {
+    height: 60rem;
+    padding-top: 1rem;
+  }
+
+  .steps {
+    display: block;
+  }
+
+  .spine {
+    display: block;
+    position: absolute;
+    inset-inline-start: calc(50% - 1px);
+    top: 6.125rem;
+    width: 2px;
+    height: 47.5rem;
+  }
+
+  .step {
+    display: block;
+    height: 10rem;
+  }
+
+  .step::before {
+    content: none !important;
+  }
+
+  .node {
+    position: absolute;
+    inset-inline-start: calc(50% - 2rem);
+    top: 3rem;
+  }
+
+  .arm {
+    position: absolute;
+    top: var(--arm-top);
+    width: 28.125rem;
+  }
+
+  /* 88px either side of the spine's centre. */
+  .end .arm {
+    inset-inline-start: calc(50% + 5.5rem);
+  }
+
+  .start .arm {
+    inset-inline-end: calc(50% + 5.5rem);
+  }
+
+  /* Connectors bridge the 56px between node and card, 45.5px below the
+     row's top. */
+  .branch {
+    display: block;
+    position: absolute;
+    top: calc(2.84375rem - var(--arm-top));
+  }
+
+  .end .branch {
+    inset-inline-start: -3.5rem;
+  }
+
+  .start .branch {
+    inset-inline-end: -3.5rem;
+  }
+
+  .branch:dir(rtl) {
+    scale: -1 1;
+  }
+}

@@ -42,6 +42,8 @@
   --color-violet: #9769ce;
   --color-violet-light: #a37ad7;
   --color-ink-faint: #6e6e6e;
+  /* Services page (Figma): service card fill. */
+  --color-panel: #0b1220;
 
   /* Display type scale (Michroma line-height "auto" = 1.42) */
   --text-display-xl: 3rem;

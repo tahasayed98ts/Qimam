@@ -1,9 +1,11 @@
 /*
- * About page background, from the Figma frame (1440 × 3552): three blurred
- * circles along the top (blue, lavender, purple) and two faint purple hazes,
- * mid-left and lower-right. Each blur is a radial gradient whose stops follow
- * the exact profile of a blurred disk, so it looks the same as the SVG but
- * paints far cheaper than a 250px blur filter.
+ * Inner-page background shared by the About and Services Figma frames: three
+ * blurred circles along the top (blue, lavender, purple) and two faint purple
+ * hazes, mid-left and lower-right (at 1401.5 and 2626.5 Figma px; placed as a
+ * share of the frame height, --page-height, so they stay mid-page and low on
+ * any screen). Each blur is a radial gradient whose stops follow the exact
+ * profile of a blurred disk, so it looks the same as Figma's SVG but paints
+ * far cheaper than a 250px blur filter.
  * --g is one Figma pixel: the 90% desktop scale, shrinking on narrow screens.
  */
 .backdrop {
@@ -89,12 +91,11 @@
   );
 }
 
-/* Ø ~1006 discs blurred by 100px at 20% opacity, with a violet centre;
-   placed by page height so they stay mid-page and low on any screen. */
+/* Ø ~1006 discs blurred by 100px at 20% opacity, with a violet centre. */
 .hazeLeft {
   --radius: 713;
   left: 17.5%;
-  top: 39.457%;
+  top: calc(1401.5 / var(--page-height) * 100%);
   background: radial-gradient(
     closest-side,
     rgb(66 41 159 / 0.2) 0%,
@@ -116,7 +117,7 @@
 .hazeRight {
   --radius: 713;
   left: 82.5%;
-  top: 73.944%;
+  top: calc(2626.5 / var(--page-height) * 100%);
   background: radial-gradient(
     closest-side,
     rgb(64 50 148 / 0.2) 0%,

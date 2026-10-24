@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 
-import { AboutBackdrop } from "@/components/about/about-backdrop"
 import { AboutGallery } from "@/components/about/about-gallery"
 import { AboutIntro } from "@/components/about/about-intro"
 import { GoalsSection } from "@/components/about/goals-section"
+import { PageBackdrop } from "@/components/page-backdrop"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { localizePath } from "@/i18n/config"
 import { getDictionary, getLocale } from "@/i18n/dictionaries"
@@ -28,7 +28,7 @@ export default function AboutPage() {
   return (
     // isolate: the backdrop sits at z-index -1 within this page only.
     <div className="relative isolate">
-      <AboutBackdrop />
+      <PageBackdrop figmaHeight={3552} />
       <AboutIntro />
       <AboutGallery />
       <GoalsSection />
