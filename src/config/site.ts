@@ -15,6 +15,9 @@ export const navigation: { key: NavKey; href: string }[] = [
 /** The footer "Quick Links" list from the Figma frame (no About entry). */
 export const footerNavigation = navigation.filter(({ key }) => key !== "about")
 
+/** Inbox that receives the Contact page form ("Book Now"). */
+export const contactEmail = "qimamsmart@gmail.com"
+
 /**
  * TODO(content): replace with Qimam's real profiles and WhatsApp number —
  * the Figma file only shows the icons.

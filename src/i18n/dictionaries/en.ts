@@ -135,6 +135,43 @@ const en = {
     title: "Articles",
     sections: "Article sections",
   },
+  contact: {
+    meta: {
+      title: "Contact Us",
+      description:
+        "Get in touch with Qimam: tell us about your project and we'll get back to you.",
+    },
+    title: "Contact Us",
+    fields: {
+      firstName: { label: "First Name", placeholder: "Enter your first name" },
+      lastName: { label: "Last Name", placeholder: "Enter your last name" },
+      email: { label: "Email", placeholder: "Enter your email" },
+      phone: { label: "Phone Number", placeholder: "Enter your phone number" },
+      source: {
+        label: "How did you hear about us?",
+        placeholder: "Choose option",
+      },
+      message: { label: "Message", placeholder: "Write your message here..." },
+    },
+    // TODO(content): the Figma frame doesn't list the answers.
+    sources: {
+      search: "Search engine",
+      social: "Social media",
+      referral: "Friend or colleague",
+      other: "Other",
+    },
+    errors: {
+      required: "Please fill in this field.",
+      invalid: "Please choose one of the options.",
+      tooLong: "This is too long.",
+      email: "Please enter a valid email address.",
+      phone: "Please enter a valid phone number.",
+    },
+    submit: "Book Now",
+    sending: "Sending…",
+    sent: "Thank you! Your message has been sent, and we'll get back to you soon.",
+    failed: "Sorry, your message couldn't be sent. Please try again, or email us at",
+  },
   // Labels of the project details pages; each case study's own copy lives in
   // src/content/case-studies.
   projectDetails: {

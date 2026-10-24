@@ -134,6 +134,38 @@ const ar: Dictionary = {
     title: "المقالات",
     sections: "أقسام المقال",
   },
+  contact: {
+    meta: {
+      title: "تواصل معنا",
+      description: "تواصل مع قمم: أخبرنا عن مشروعك وسنعود إليك قريبًا.",
+    },
+    title: "تواصل معنا",
+    fields: {
+      firstName: { label: "الاسم الأول", placeholder: "أدخل اسمك الأول" },
+      lastName: { label: "اسم العائلة", placeholder: "أدخل اسم العائلة" },
+      email: { label: "البريد الإلكتروني", placeholder: "أدخل بريدك الإلكتروني" },
+      phone: { label: "رقم الهاتف", placeholder: "أدخل رقم هاتفك" },
+      source: { label: "كيف عرفت عنّا؟", placeholder: "اختر خيارًا" },
+      message: { label: "رسالتك", placeholder: "اكتب رسالتك هنا..." },
+    },
+    sources: {
+      search: "محرك بحث",
+      social: "وسائل التواصل الاجتماعي",
+      referral: "صديق أو زميل",
+      other: "أخرى",
+    },
+    errors: {
+      required: "يُرجى ملء هذا الحقل.",
+      invalid: "يُرجى اختيار أحد الخيارات.",
+      tooLong: "النص أطول من اللازم.",
+      email: "يُرجى إدخال بريد إلكتروني صحيح.",
+      phone: "يُرجى إدخال رقم هاتف صحيح.",
+    },
+    submit: "احجز الآن",
+    sending: "جارٍ الإرسال…",
+    sent: "شكرًا لك! أُرسلت رسالتك، وسنعود إليك قريبًا.",
+    failed: "عذرًا، تعذّر إرسال رسالتك. حاول مرة أخرى، أو راسلنا على",
+  },
   projectDetails: {
     back: "العودة إلى المشاريع",
     facts: {
