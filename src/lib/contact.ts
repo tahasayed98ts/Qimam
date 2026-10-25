@@ -37,6 +37,9 @@ export type ContactState = {
 
 const required: ContactField[] = ["firstName", "lastName", "email", "message"]
 
+/** Something@domain.tld; shared with the footer's Subscribe form. */
+export const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+
 export function validateContact(formData: FormData) {
   const values = {} as Record<ContactField, string>
   const errors: ContactState["errors"] = {}
@@ -49,7 +52,7 @@ export function validateContact(formData: FormData) {
       errors[field] = "tooLong"
     }
   }
-  if (!errors.email && values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+  if (!errors.email && values.email && !isEmail(values.email)) {
     errors.email = "invalid"
   }
   if (

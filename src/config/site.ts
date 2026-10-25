@@ -15,15 +15,14 @@ export const navigation: { key: NavKey; href: string }[] = [
 /** The footer "Quick Links" list from the Figma frame (no About entry). */
 export const footerNavigation = navigation.filter(({ key }) => key !== "about")
 
-/** Inbox that receives the Contact page form ("Book Now"). */
+/** Inbox that receives the Contact page form ("Book Now") and subscribers. */
 export const contactEmail = "qimamsmart@gmail.com"
 
-/**
- * TODO(content): replace with Qimam's real profiles and WhatsApp number —
- * the Figma file only shows the icons.
- */
+/** Qimam's profiles, and a WhatsApp chat with Qimam's number. */
 export const socialLinks = {
-  linkedin: "https://www.linkedin.com/",
-  x: "https://x.com/",
-  whatsapp: "https://wa.me/",
+  linkedin: "https://www.linkedin.com/company/qimam-tech/about/",
+  x: "https://x.com/qimam_",
+  // 01559093750, an Egyptian mobile: wa.me takes it with the country code
+  // (20) and without the leading 0.
+  whatsapp: "https://wa.me/201559093750",
 } as const

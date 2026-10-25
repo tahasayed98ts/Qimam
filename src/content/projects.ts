@@ -2,16 +2,18 @@ import type { StaticImageData } from "next/image"
 
 import amrAli from "@/assets/home/projects/amr-ali.png"
 import arabfly from "@/assets/home/projects/arabfly.png"
+import special from "@/assets/home/projects/special.png"
 import tallah from "@/assets/home/projects/tallah.png"
-import tawaf from "@/assets/home/projects/tawaf.png"
 
-export type ProjectId = "arabfly" | "tallah" | "tawaf" | "amr-ali"
+export type ProjectId = "arabfly" | "tallah" | "special" | "amr-ali"
 
 export type Project = {
   id: ProjectId
   name: string
   /** Public site shown in the URL chip; omitted when not confirmed yet. */
   url?: string
+  /** An app's store pages, shown as store badges in place of the URL chip. */
+  stores?: { appStore?: string; googlePlay?: string }
   image: StaticImageData
 }
 
@@ -27,7 +29,9 @@ export const projects: Project[] = [
   {
     id: "arabfly",
     name: "ArabFly",
-    url: "https://www.Bybit.com",
+    // TODO(content): Figma also shows a Google Play badge; it appears once
+    // the app's Google Play link is added here as `googlePlay`.
+    stores: { appStore: "https://apps.apple.com/us/app/arabfly/id6800468216" },
     image: arabfly,
   },
   {
@@ -37,10 +41,10 @@ export const projects: Project[] = [
     image: tallah,
   },
   {
-    id: "tawaf",
-    name: "Tawaf",
-    url: "https://tawaf-two.vercel.app/ar",
-    image: tawaf,
+    id: "special",
+    name: "Special",
+    url: "https://specialperfume.sa/ar",
+    image: special,
   },
   {
     id: "amr-ali",

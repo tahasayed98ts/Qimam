@@ -21,7 +21,9 @@ It's optional: on Vercel it defaults to the project's production domain
 
 "Book Now" on the Contact page emails qimamsmart@gmail.com
 (`contactEmail` in `src/config/site.ts`) through [Resend](https://resend.com),
-from a server action; replying to the email answers the visitor.
+from a server action; replying to the email answers the visitor. The footer's
+Subscribe form sends each new subscriber's address to the same inbox the same
+way, as there's no newsletter service yet. Both go through `src/lib/email.ts`.
 
 1. Sign in to Resend with the **qimamsmart@gmail.com** account and create an
    API key with sending access.
@@ -29,11 +31,12 @@ from a server action; replying to the email answers the visitor.
    `RESEND_API_KEY` (Production and Preview), then redeploy. For local
    testing, put it in `.env.local` (git-ignored).
 
-Without the key, the form shows a "couldn't be sent" notice with the address
-to email instead. Resend's shared sender (`onboarding@resend.dev`) only
-delivers to its account's own address, which is why the account must be the
-qimamsmart one. Once a domain is verified in Resend, set `CONTACT_FROM_EMAIL`
-(e.g. `Qimam <website@your-domain.com>`) to send from it.
+Without the key, the Contact form shows a "couldn't be sent" notice with the
+address to email instead, and the Subscribe form asks to try again. Resend's
+shared sender (`onboarding@resend.dev`) only delivers to its account's own
+address, which is why the account must be the qimamsmart one. Once a domain
+is verified in Resend, set `CONTACT_FROM_EMAIL` (e.g.
+`Qimam <website@your-domain.com>`) to send from it.
 
 ## Structure
 
@@ -42,11 +45,11 @@ qimamsmart one. Once a domain is verified in Resend, set `CONTACT_FROM_EMAIL`
 | `src/app/[locale]/` | Root layout (`lang`/`dir`, fonts, header, footer) and pages. `[...rest]` + `not-found.tsx` give unknown and not-yet-built routes a localized 404. |
 | `src/proxy.ts` | Redirects locale-less URLs to `/en` or `/ar` (saved choice → `Accept-Language` → English). |
 | `src/i18n/` | Locale config, `getDictionary()` (reads the `[locale]` root param) and the `en`/`ar` dictionaries. `ar` is typed against `en`, so missing keys fail type-checking. |
-| `src/components/layout/` | Header, language switcher, menu sheet, footer, WhatsApp tab. |
+| `src/components/layout/` | Header, language switcher, menu sheet, footer and its Subscribe form (server action in `app/[locale]/actions.ts`), WhatsApp tab. Social links and the WhatsApp number live in `src/config/site.ts`. |
 | `src/components/home/` | Home sections. `hero/` holds the light-beam backdrop and the Three.js strands. |
 | `src/components/about/` | About sections (`/about`): intro, photo gallery, goals grid. Testimonials are shared with Home (`components/testimonials-section.tsx`). |
 | `src/components/services/` | Services sections (`/services`): title and service cards, the "Our Process" timeline (alternating around a spine on desktop, single-sided below), and the industries grid. |
-| `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px. Each arrow opens the project's details page, or its live site until it has one. |
+| `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px. An app shows its store badges in place of the URL (`store-badges.tsx`). Each arrow opens the project's details page, or its live site until it has one. |
 | `src/components/case-study/` | Project details pages (`/projects/[id]`): intro and key facts, screenshots in tinted frames (`showcase.tsx`: Figma's crops, scaled with the frame), overview, context and challenge, approach, and the "A closer look" strip (`gallery-carousel.tsx`, the only client component). |
 | `src/components/articles/` | Articles: the card of `/articles` (photo, title, date, excerpt, and a "Learn More" link once the article has its text), and the article page (`/articles/[slug]`): `article-body.tsx` sets an article's text blocks, `article-toc.tsx` is the sticky sections box that follows the reader (desktop only). |
 | `src/components/contact/` | The Contact form (`/contact`): fields with per-field errors in both languages, refilled after an error. It posts to the server action in `app/[locale]/contact/actions.ts`, which emails it through Resend; the fields' rules live in `src/lib/contact.ts`. |
@@ -55,6 +58,7 @@ qimamsmart one. Once a domain is verified in Resend, set `CONTACT_FROM_EMAIL`
 | `src/content/` | Content data: projects and partner logos (copy for these lives in the dictionaries), and `case-studies/`, one module per project with a details page, holding its screenshots, their Figma framing and its English and Arabic copy. `/projects` lists every project; Home features the first four. `articles.ts` lists the articles: slug, date, photo, English and Arabic title and excerpt, and, for articles with a page, their text as headings, paragraphs and lists. |
 | `src/assets/home/` | Home images: project images exported from Figma (also used on `/projects`); the showcase and partner logos are cropped from the Home export. |
 | `src/assets/projects/` | Project details screenshots exported from Figma, one folder per project. |
+| `src/assets/stores/` | The App Store and Google Play badges exported from Figma (the App Store badge comes in its four layers). |
 | `src/assets/articles/` | Article photos exported from Figma, saved as JPEGs 1200px wide (2000px for one that also heads its article page), and the cards' arrow icon. |
 | `src/assets/about/` | About images exported from Figma: the three gallery photos and the six goal schematics (SVG). |
 | `src/assets/services/` | Services assets exported from Figma: timeline connectors, industry icons and the industry glow. (The timeline icons are Lucide, as in the design.) |
@@ -103,8 +107,10 @@ replaced with differently placed strands, refit the helix constants in
 
 ## Content still to confirm
 
-Home was synced with the live Figma file (node `142:2369`), About with node
-`142:2711`, Services with `142:2944`, Projects with `142:3268`, the ArabFly
+Home was synced with the live Figma file (node `142:2369`; its projects table
+again on 25 Oct 2026: ArabFly's store badges, Special in place of Tawaf),
+About with node `142:2711`, Services with `142:2944`, Projects with
+`142:3268`, the ArabFly
 details page with `322:343`, Articles with `142:3625`, the article page with
 `142:3725`, Contact with `142:3790`. Small copy fixes against Figma: About's
 title reads "That Fit Your Needs" (as on Home), the gallery title gets the
@@ -126,14 +132,14 @@ sub-section" placeholders. On Contact, each field has its own placeholder
 Placeholder content that should be replaced or confirmed before launch (each
 spot is marked `TODO` in code):
 
-- About's four "Our Focus" cards (all "Supported Servers" + Lorem ipsum in
-  Figma).
 - The Projects frame still holds template projects (ByBit, Fitgo,
   EventMasters, ProTech Solutions with Lorem ipsum, repeated over four rows),
   so `/projects` lists the real projects from `src/content/projects.ts`: the
   same four as Home until more are added (each needs an image, an entry there
   and its category and description in both dictionaries).
-- Only ArabFly has a details page so far; Tallah, Tawaf and Amr Ali link to
+- ArabFly's Google Play link: Figma shows a Google Play badge beside the App
+  Store one, and it appears once the link is added in `src/content/projects.ts`.
+- Only ArabFly has a details page so far; Tallah, Special and Amr Ali link to
   their live sites until theirs are designed (add a module to
   `src/content/case-studies/`). ArabFly's gallery captions were template text
   in Figma ("Introduction and featured work"…) and now describe the screens;
@@ -146,8 +152,8 @@ spot is marked `TODO` in code):
   "Learn More" link; a card gets one once its article has a `body` in
   `src/content/articles.ts`.
 
-- Social profile URLs and the WhatsApp number (`src/config/site.ts`).
 - "Trusted by" company logos, stats figures, and the testimonials (still Lorem
   ipsum in Figma).
 - The "Supported Servers" paragraph reads like template text.
-- The newsletter form has no provider yet; it validates and shows a notice.
+- Subscribers arrive as emails in the contact inbox; sending newsletters to
+  them would need a newsletter service.

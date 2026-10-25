@@ -68,7 +68,7 @@ export async function SiteFooter() {
             <p className="mt-4.5 leading-6 text-[#d4d4d4]">
               {footer.subscribeText}
             </p>
-            <SubscribeForm labels={footer} />
+            <SubscribeForm locale={locale} labels={footer} />
           </div>
         </div>
 

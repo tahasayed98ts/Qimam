@@ -8,6 +8,7 @@ import type { Project } from "@/content/projects"
 import { localizePath } from "@/i18n/config"
 import { getDictionary, getLocale } from "@/i18n/dictionaries"
 import { cn } from "@/lib/utils"
+import { StoreBadges } from "./store-badges"
 
 const arrowButton =
   "grid size-11.5 shrink-0 place-items-center rounded-[0.375rem] bg-[#272727] text-link transition-colors hover:bg-[#333]"
@@ -22,8 +23,9 @@ const arrow = (
 
 /**
  * The bordered projects table shared by Home and the Projects page: each
- * project is a category bar over its image, name, URL and description, two
- * to a row from md. `children` close the frame (Home's "More Projects" row).
+ * project is a category bar over its image, name, URL (or an app's store
+ * badges) and description, two to a row from md. `children` close the frame
+ * (Home's "More Projects" row).
  */
 export async function ProjectsTable({
   projects,
@@ -91,13 +93,21 @@ export async function ProjectsTable({
                     <Heading className="text-lg leading-[1.5] font-medium tracking-[-0.006em] text-[#e6e6e6]">
                       {project.name}
                     </Heading>
-                    {project.url && (
-                      <p
-                        dir="ltr"
-                        className="mt-2.5 inline-block max-w-full truncate rounded-[0.375rem] bg-[#272727] px-3 py-2 align-top leading-6 tracking-[-0.006em] text-ink-dim"
-                      >
-                        {project.url}
-                      </p>
+                    {project.stores ? (
+                      <StoreBadges
+                        name={project.name}
+                        stores={project.stores}
+                        labels={copy}
+                      />
+                    ) : (
+                      project.url && (
+                        <p
+                          dir="ltr"
+                          className="mt-2.5 inline-block max-w-full truncate rounded-[0.375rem] bg-[#272727] px-3 py-2 align-top leading-6 tracking-[-0.006em] text-ink-dim"
+                        >
+                          {project.url}
+                        </p>
+                      )
                     )}
                   </div>
                   {/* The project's page once it has one; until then its

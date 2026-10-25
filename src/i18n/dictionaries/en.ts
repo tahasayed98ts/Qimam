@@ -95,12 +95,14 @@ const en = {
     meta: {
       title: "Our Projects",
       description:
-        "See Qimam's projects: platforms for travel, loyalty points and Hajj and Umrah trips, and a website for a real estate and contracting company.",
+        "See Qimam's projects: platforms for travel and loyalty points, digital marketing for a perfume brand, and a website for a real estate and contracting company.",
     },
     title: "Our Projects",
     more: "More Projects",
     viewProject: "View project:",
     visitSite: "Visit the live site:",
+    appStore: "Download on the App Store:",
+    googlePlay: "Get it on Google Play:",
     newTab: "(opens in a new tab)",
     items: {
       arabfly: {
@@ -113,10 +115,10 @@ const en = {
         description:
           "Tallah is an all-in-one travel and tourism platform that makes planning your next trip simple and seamless. Explore destinations, book flights and hotels, discover tailored tour packages, and access visa services and more—all in one place.",
       },
-      tawaf: {
-        category: "Hajj, Umrah & Visits to the Holy House of Allah",
+      special: {
+        category: "Perfumes, Branding & Digital Marketing.",
         description:
-          "Tawaf Al Dhahabiya is a travel platform offering tailored Hajj and Umrah packages, seamless travel arrangements, and comfortable accommodation. We make every spiritual journey rewarding through trusted services designed to provide pilgrims with a peaceful and memorable experience.",
+          "Special is a perfume brand with a warm, premium identity. We led its digital marketing, creating social media content and product visuals that present each fragrance with a consistent look and a clear message, helping the brand stand out and connect with its audience online.",
       },
       "amr-ali": {
         category: "Real Estate, Contracting, and Finishing Works.",
@@ -212,12 +214,11 @@ const en = {
     },
     focus: {
       title: "Our Focus",
-      // TODO(content): Figma still shows placeholder focus areas.
       items: [
-        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
-        { title: "Supported Servers", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+        { title: "Digital Solutions", body: "Building reliable digital products that solve real business challenges." },
+        { title: "Digital Marketing", body: "Connecting brands with the right audience to drive measurable results." },
+        { title: "Smart Automation", body: "Simplifying workflows and improving efficiency through AI and automation." },
+        { title: "Business Growth", body: "Turning business goals into measurable and sustainable outcomes." },
       ],
     },
     gallery: {
@@ -314,7 +315,13 @@ const en = {
     emailLabel: "Email address",
     emailPlaceholder: "example@gmail.com",
     submit: "Subscribe",
-    subscribePending: "Subscriptions open soon — thank you for your interest.",
+    subscribing: "Subscribing…",
+    subscribed: "Thank you for subscribing! We’ll keep you posted.",
+    subscribeFailed: "Sorry, we couldn’t subscribe you. Please try again.",
+    errors: {
+      required: "Please enter your email address.",
+      invalid: "Please enter a valid email address.",
+    },
     rights: "All Rights Reserved to Qimam ©",
     navLabel: "Footer",
   },
