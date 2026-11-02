@@ -59,7 +59,7 @@ is verified in Resend, set `CONTACT_FROM_EMAIL` (e.g.
 | `src/assets/home/` | Home images: project images exported from Figma (also used on `/projects`); the showcase and partner logos are cropped from the Home export. |
 | `src/assets/projects/` | Project details screenshots exported from Figma, one folder per project. |
 | `src/assets/stores/` | The App Store and Google Play badges exported from Figma (the App Store badge comes in its four layers). |
-| `src/assets/articles/` | Article photos exported from Figma, saved as JPEGs 1200px wide (2000px for one that also heads its article page), and the cards' arrow icon. |
+| `src/assets/articles/` | Article photos exported from Figma as JPEGs, at most 1200px wide (the Artificial Intelligence one 2000px, from the article frame), and the cards' arrow icon. |
 | `src/assets/about/` | About images exported from Figma: the three gallery photos and the six goal schematics (SVG). |
 | `src/assets/services/` | Services assets exported from Figma: timeline connectors, industry icons and the industry glow. (The timeline icons are Lucide, as in the design.) |
 | `images/` | Supplied brand assets (imported via the `@images/*` alias). |
@@ -124,11 +124,11 @@ hotels". The third gallery shot drops the template's "casa oliva" mock-up left
 behind it in Figma and is framed like the second. On Articles, "learn More"
 reads "Learn More", dates are set in Roboto (Figma uses Poppins, which the
 site doesn't load), and the cards fit the 1264px content column (Figma's grid
-runs 17px wider). On the article page, the text's leftover Markdown ("####
-Common Types of AI:", "**Machine Learning AI**") is set as headings, and the
-sections box lists those headings instead of Figma's "First Section /
-sub-section" placeholders. On Contact, each field has its own placeholder
-(Figma repeats "Enter your first name").
+runs 17px wider). On the article page, the text is Qimam's articles content
+(Nov 2026) instead of the frame's sample text, and the sections box lists each
+article's headings instead of Figma's "First Section / sub-section"
+placeholders. On Contact, each field has its own placeholder (Figma repeats
+"Enter your first name").
 Placeholder content that should be replaced or confirmed before launch (each
 spot is marked `TODO` in code):
 
@@ -146,11 +146,11 @@ spot is marked `TODO` in code):
   its gallery screenshots are small (496×226), so sharper exports would help.
 - The answers to "How did you hear about us?" on the Contact form (Figma
   doesn't list them): search engine, social media, friend or colleague, other.
-- The six articles are Figma's samples (titles, dates, excerpts, stock
-  photos); one is dated 28 Nov 2026, in the future. Only "Artificial
-  Intelligence" has its text (from the article frame), so only its card has a
-  "Learn More" link; a card gets one once its article has a `body` in
-  `src/content/articles.ts`.
+- The articles' dates and photos are still Figma's samples; one is dated
+  28 Nov 2026, in the future. Four of the photos are only 1125px wide, so they
+  look slightly soft at the top of their article pages on high-density
+  screens. A new article gets its page and "Learn More" link once it has a
+  `body` in `src/content/articles.ts`.
 
 - "Trusted by" company logos, stats figures, and the testimonials (still Lorem
   ipsum in Figma).
