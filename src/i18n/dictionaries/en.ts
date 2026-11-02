@@ -95,7 +95,7 @@ const en = {
     meta: {
       title: "Our Projects",
       description:
-        "See Qimam's projects: platforms for travel and loyalty points, digital marketing for a perfume brand, and a website for a real estate and contracting company.",
+        "See Qimam's projects: platforms for travel, loyalty points and Hajj and Umrah trips, digital marketing for a perfume brand, and a website for a real estate and contracting company.",
     },
     title: "Our Projects",
     more: "More Projects",
@@ -124,6 +124,11 @@ const en = {
         category: "Real Estate, Contracting, and Finishing Works.",
         description:
           "Amr Ali is a contracting and general supplies company specializing in residential, commercial, and industrial construction. With expertise in engineering, interior design, and finishing, the company delivers integrated solutions focused on quality and reliability across Egypt and Saudi Arabia.",
+      },
+      tawaf: {
+        category: "Hajj, Umrah & Visits to the Holy House of Allah",
+        description:
+          "Tawaf Al Dhahabiya is a travel platform offering tailored Hajj and Umrah packages, seamless travel arrangements, and comfortable accommodation. We make every spiritual journey rewarding through trusted services designed to provide pilgrims with a peaceful and memorable experience.",
       },
     },
   },

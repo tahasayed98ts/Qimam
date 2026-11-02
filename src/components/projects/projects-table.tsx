@@ -62,7 +62,9 @@ export async function ProjectsTable({
             <li
               key={project.id}
               className={cn(
-                "row-span-2 grid grid-rows-subgrid border-rule-light",
+                // grid-cols-1 is minmax(0, 1fr): a long URL chip truncates
+                // instead of widening the cell past its column.
+                "row-span-2 grid grid-cols-1 grid-rows-subgrid border-rule-light",
                 index > 0 && "border-t md:border-t-0",
                 index % 2 === 1 && "md:border-s",
                 index > 1 && "md:border-t"
@@ -139,6 +141,17 @@ export async function ProjectsTable({
             </li>
           )
         })}
+        {/* An odd count leaves the last row's second cell empty: draw its
+            rules so the table still closes on two columns. */}
+        {projects.length % 2 === 1 && (
+          <li
+            aria-hidden="true"
+            className={cn(
+              "row-span-2 hidden border-s border-rule-light md:block",
+              projects.length > 1 && "border-t"
+            )}
+          />
+        )}
       </ul>
       {children}
     </div>

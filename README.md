@@ -49,7 +49,7 @@ is verified in Resend, set `CONTACT_FROM_EMAIL` (e.g.
 | `src/components/home/` | Home sections. `hero/` holds the light-beam backdrop and the Three.js strands. |
 | `src/components/about/` | About sections (`/about`): intro, photo gallery, goals grid. Testimonials are shared with Home (`components/testimonials-section.tsx`). |
 | `src/components/services/` | Services sections (`/services`): title and service cards, the "Our Process" timeline (alternating around a spine on desktop, single-sided below), and the industries grid. |
-| `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px. An app shows its store badges in place of the URL (`store-badges.tsx`). Each arrow opens the project's details page, or its live site until it has one. |
+| `src/components/projects/` | The projects table shared by Home and `/projects`: a category bar over each project's image, name, URL and description, two to a row from 768px (an odd last project gets an empty ruled cell beside it). A URL too long for its cell ends in "…". An app shows its store badges in place of the URL (`store-badges.tsx`). Each arrow opens the project's details page, or its live site until it has one. |
 | `src/components/case-study/` | Project details pages (`/projects/[id]`): intro and key facts, screenshots in tinted frames (`showcase.tsx`: Figma's crops, scaled with the frame), overview, context and challenge, approach, and the "A closer look" strip (`gallery-carousel.tsx`, the only client component). |
 | `src/components/articles/` | Articles: the card of `/articles` (photo, title, date, excerpt, and a "Learn More" link once the article has its text), and the article page (`/articles/[slug]`): `article-body.tsx` sets an article's text blocks, `article-toc.tsx` is the sticky sections box that follows the reader (desktop only). |
 | `src/components/contact/` | The Contact form (`/contact`): fields with per-field errors in both languages, refilled after an error. It posts to the server action in `app/[locale]/contact/actions.ts`, which emails it through Resend; the fields' rules live in `src/lib/contact.ts`. |
@@ -108,7 +108,8 @@ replaced with differently placed strands, refit the helix constants in
 ## Content still to confirm
 
 Home was synced with the live Figma file (node `142:2369`; its projects table
-again on 25 Oct 2026: ArabFly's store badges, Special in place of Tawaf),
+again on 25 Oct 2026: ArabFly's store badges, Special in place of Tawaf,
+which stays on `/projects`),
 About with node `142:2711`, Services with `142:2944`, Projects with
 `142:3268`, the ArabFly
 details page with `322:343`, Articles with `142:3625`, the article page with
@@ -135,12 +136,12 @@ spot is marked `TODO` in code):
 - The Projects frame still holds template projects (ByBit, Fitgo,
   EventMasters, ProTech Solutions with Lorem ipsum, repeated over four rows),
   so `/projects` lists the real projects from `src/content/projects.ts`: the
-  same four as Home until more are added (each needs an image, an entry there
-  and its category and description in both dictionaries).
+  four on Home, then Tawaf, until more are added (each needs an image, an
+  entry there and its category and description in both dictionaries).
 - ArabFly's Google Play link: Figma shows a Google Play badge beside the App
   Store one, and it appears once the link is added in `src/content/projects.ts`.
-- Only ArabFly has a details page so far; Tallah, Special and Amr Ali link to
-  their live sites until theirs are designed (add a module to
+- Only ArabFly has a details page so far; Tallah, Special, Amr Ali and Tawaf
+  link to their live sites until theirs are designed (add a module to
   `src/content/case-studies/`). ArabFly's gallery captions were template text
   in Figma ("Introduction and featured work"…) and now describe the screens;
   its gallery screenshots are small (496×226), so sharper exports would help.

@@ -4,8 +4,9 @@ import amrAli from "@/assets/home/projects/amr-ali.png"
 import arabfly from "@/assets/home/projects/arabfly.png"
 import special from "@/assets/home/projects/special.png"
 import tallah from "@/assets/home/projects/tallah.png"
+import tawaf from "@/assets/home/projects/tawaf.png"
 
-export type ProjectId = "arabfly" | "tallah" | "special" | "amr-ali"
+export type ProjectId = "arabfly" | "tallah" | "special" | "amr-ali" | "tawaf"
 
 export type Project = {
   id: ProjectId
@@ -18,12 +19,13 @@ export type Project = {
 }
 
 /**
- * All projects, listed on the Projects page in Figma's Home order (images
- * exported from Figma). Localized category and description live in the
- * dictionaries under `projects.items[id]`.
+ * All projects, listed on the Projects page: Home's four in Figma's order,
+ * then Tawaf, which Special replaced on Home (images exported from Figma).
+ * Localized category and description live in the dictionaries under
+ * `projects.items[id]`.
  *
  * TODO(content): add Qimam's other projects. Figma's Projects frame only has
- * template placeholders, so /projects lists the same four as Home for now.
+ * template placeholders.
  */
 export const projects: Project[] = [
   {
@@ -52,7 +54,13 @@ export const projects: Project[] = [
     url: "https://amr-ali.com/ar",
     image: amrAli,
   },
+  {
+    id: "tawaf",
+    name: "Tawaf",
+    url: "https://www.tawafgroups.com/ar",
+    image: tawaf,
+  },
 ]
 
-/** The four projects featured on Home. */
+/** The four projects featured on Home: all but Tawaf. */
 export const featuredProjects = projects.slice(0, 4)
