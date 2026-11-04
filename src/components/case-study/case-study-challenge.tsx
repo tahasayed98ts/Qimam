@@ -2,7 +2,7 @@ import { CornerDownRight } from "lucide-react"
 
 import type { CaseStudyCopy, Showcase } from "@/content/case-studies"
 import { getDictionary } from "@/i18n/dictionaries"
-import { ChapterLabel, ChapterTitle } from "./chapter"
+import { ChapterLabel, ChapterTitle, TitleLines } from "./chapter"
 import { ShowcaseFigure } from "./showcase"
 
 /**
@@ -28,7 +28,9 @@ export async function CaseStudyChallenge({
         <ChapterLabel number={2}>
           {projectDetails.chapters.challenge}
         </ChapterLabel>
-        <ChapterTitle id="challenge-title">{copy.title}</ChapterTitle>
+        <ChapterTitle id="challenge-title">
+          <TitleLines lines={copy.title} />
+        </ChapterTitle>
         {copy.body.map((text) => (
           <p key={text} className="leading-[1.8] text-ink-sage">
             {text}

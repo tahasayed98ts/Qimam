@@ -103,12 +103,16 @@ export async function ProjectsTable({
                       />
                     ) : (
                       project.url && (
-                        <p
+                        <a
                           dir="ltr"
-                          className="mt-2.5 inline-block max-w-full truncate rounded-[0.375rem] bg-[#272727] px-3 py-2 align-top leading-6 tracking-[-0.006em] text-ink-dim"
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${copy.visitSite} ${project.name} ${copy.newTab}`}
+                          className="mt-2.5 inline-block max-w-full truncate rounded-[0.375rem] bg-[#272727] px-3 py-2 align-top leading-6 tracking-[-0.006em] text-ink-dim transition-colors hover:bg-[#333] hover:text-ink"
                         >
                           {project.url}
-                        </p>
+                        </a>
                       )
                     )}
                   </div>

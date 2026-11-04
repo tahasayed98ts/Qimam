@@ -2,7 +2,11 @@ import type { StaticImageData } from "next/image"
 
 import { projects, type Project, type ProjectId } from "@/content/projects"
 import type { Locale } from "@/i18n/config"
+import { amrAli } from "./amr-ali"
 import { arabfly } from "./arabfly"
+import { special } from "./special"
+import { tallah } from "./tallah"
+import { tawaf } from "./tawaf"
 
 type Box = readonly [x: number, y: number, width: number, height: number]
 
@@ -21,11 +25,19 @@ export type Showcase = {
 
 /** A case study's copy in one language. */
 export type CaseStudyCopy = {
-  facts: { industry: string; services: string; year: string; platform: string }
+  facts: {
+    /** The first fact's label, where "Industry" doesn't fit it. */
+    industryLabel?: string
+    industry: string
+    services: string
+    year: string
+    platform: string
+  }
   hero: { alt: string; caption: string }
   overview: { title: string; lead: string; columns: readonly string[] }
   challenge: {
-    title: string
+    /** One entry per forced line; each may still wrap. */
+    title: readonly string[]
     body: readonly string[]
     principle: string
     alt: string
@@ -51,7 +63,13 @@ export type CaseStudy = {
 }
 
 /** Projects with a details page (`/projects/[id]`), keyed by project. */
-const caseStudies: Partial<Record<ProjectId, CaseStudy>> = { arabfly }
+const caseStudies: Partial<Record<ProjectId, CaseStudy>> = {
+  arabfly,
+  tallah,
+  special,
+  "amr-ali": amrAli,
+  tawaf,
+}
 
 /** Whether the project has a details page. */
 export function hasCaseStudy(id: ProjectId) {

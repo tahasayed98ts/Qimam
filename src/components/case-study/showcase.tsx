@@ -50,16 +50,30 @@ export function ShowcaseFrame({
     crop = [0, 0, 100, 100],
   } = showcase
 
+  // The box's corners are square where it runs to a frame edge, as in Figma.
+  const atLeft = x <= 0
+  const atTop = y <= 0
+  const atRight = x + width >= frameWidth - 1
+  const atBottom = y + height >= frameHeight - 1
+
   return (
+    // The frame's stroke lies over its content, as in Figma: a real border
+    // would shrink the box the percentages below are measured against.
     <div
       className={cn(
-        "relative overflow-clip rounded-[0.5rem] border border-frame-line bg-frame-fill",
+        "relative overflow-clip rounded-[0.5rem] bg-frame-fill after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:border after:border-frame-line",
         className
       )}
       style={{ aspectRatio: `${frameWidth} / ${frameHeight}` }}
     >
       <div
-        className="absolute overflow-clip rounded-[0.5rem] border border-white"
+        className={cn(
+          "absolute overflow-clip border border-white",
+          !atTop && !atLeft && "rounded-tl-[0.5rem]",
+          !atTop && !atRight && "rounded-tr-[0.5rem]",
+          !atBottom && !atRight && "rounded-br-[0.5rem]",
+          !atBottom && !atLeft && "rounded-bl-[0.5rem]"
+        )}
         style={{
           left: percent(x, frameWidth),
           top: percent(y, frameHeight),

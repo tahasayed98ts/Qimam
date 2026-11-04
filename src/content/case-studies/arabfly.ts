@@ -62,7 +62,7 @@ export const arabfly: CaseStudy = {
         ],
       },
       challenge: {
-        title: "Simplifying travel. Honoring Arab identity.",
+        title: ["Simplifying travel. Honoring Arab identity."],
         body: [
           "The challenge was to build a unified platform that combines travel booking services, a robust multi-tier loyalty system, and an intuitive user experience tailored for Arab travelers, while maintaining a premium, distinctive brand identity.",
           "We needed to design a clear 3-tier membership system (Classic / Silver / Gold) with visible rewards for each tier, a complete transaction history for points, and an admin dashboard that gives the operations team full visibility and control without unnecessary complexity.",
@@ -133,7 +133,7 @@ export const arabfly: CaseStudy = {
         ],
       },
       challenge: {
-        title: "تبسيط السفر. واعتزاز بالهوية العربية.",
+        title: ["تبسيط السفر. واعتزاز بالهوية العربية."],
         body: [
           "كان التحدي بناء منصة موحّدة تجمع خدمات حجز السفر، ونظام ولاء متينًا متعدد المستويات، وتجربة استخدام سهلة مصمّمة للمسافرين العرب، مع الحفاظ على هوية علامة فاخرة ومميزة.",
           "احتجنا إلى تصميم نظام عضوية واضح من ثلاثة مستويات (كلاسيك / فضي / ذهبي) بمكافآت ظاهرة لكل مستوى، وسجل كامل لمعاملات النقاط، ولوحة تحكم إدارية تمنح فريق العمليات رؤية وتحكمًا كاملين دون تعقيد غير ضروري.",

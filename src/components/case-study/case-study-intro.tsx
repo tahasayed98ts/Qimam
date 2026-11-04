@@ -53,7 +53,8 @@ export async function CaseStudyIntro({
         {factKeys.map((key) => (
           <div key={key} className="flex flex-col gap-2">
             <dt className="text-[0.6875rem] leading-[1.172] font-medium text-ink-sage uppercase">
-              {projectDetails.facts[key]}
+              {(key === "industry" && facts.industryLabel) ||
+                projectDetails.facts[key]}
             </dt>
             <dd className="text-[0.8125rem] leading-[1.172] text-ink-pale">
               {facts[key]}

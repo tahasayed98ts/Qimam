@@ -18,6 +18,15 @@ export function ChapterLabel({
   )
 }
 
+/** A title broken into its lines, as in Figma. */
+export function TitleLines({ lines }: { lines: readonly string[] }) {
+  return lines.map((line) => (
+    <span key={line} className="block">
+      {line}
+    </span>
+  ))
+}
+
 /** A case-study section title (Michroma 32px on desktop in Figma). */
 export function ChapterTitle({ className, ...props }: ComponentProps<"h2">) {
   return (

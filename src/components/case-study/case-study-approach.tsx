@@ -1,6 +1,6 @@
 import type { CaseStudyCopy, Showcase } from "@/content/case-studies"
 import { getDictionary } from "@/i18n/dictionaries"
-import { ChapterLabel, ChapterTitle } from "./chapter"
+import { ChapterLabel, ChapterTitle, TitleLines } from "./chapter"
 import { ShowcaseFrame } from "./showcase"
 
 /** "03 / Our approach": the workflow, its numbered steps and a wide shot. */
@@ -24,11 +24,7 @@ export async function CaseStudyApproach({
             {projectDetails.chapters.approach}
           </ChapterLabel>
           <ChapterTitle id="approach-title">
-            {copy.title.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
+            <TitleLines lines={copy.title} />
           </ChapterTitle>
           <p className="leading-[1.8] text-ink-sage">{copy.body}</p>
         </div>
