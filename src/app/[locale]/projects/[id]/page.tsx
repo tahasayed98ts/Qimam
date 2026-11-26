@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
+import { AosInit } from "@/components/aos-init"
 import { CaseStudyApproach } from "@/components/case-study/case-study-approach"
 import { CaseStudyChallenge } from "@/components/case-study/case-study-challenge"
 import { CaseStudyGallery } from "@/components/case-study/case-study-gallery"
@@ -14,8 +15,11 @@ import { getLocale } from "@/i18n/dictionaries"
 
 // Fully static. Other ids are rendered (to the localized 404, for projects
 // without a case study yet) before responding, so they get a real 404 status
-// rather than a streamed shell.
+// rather than a streamed shell. For that the page has no loading placeholder,
+// so following a link here waits for the page; `instant = false` says that's
+// intended.
 export const ensureStatic = "navigation"
+export const instant = false
 
 export function generateStaticParams() {
   return caseStudyIds.map((id) => ({ id }))
@@ -77,6 +81,7 @@ export default async function ProjectPage({
       <CaseStudyApproach showcase={study.approach} copy={copy.approach} />
       {rule}
       <CaseStudyGallery shots={study.gallery} copy={copy.gallery} />
+      <AosInit />
     </div>
   )
 }

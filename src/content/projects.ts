@@ -31,9 +31,11 @@ export const projects: Project[] = [
   {
     id: "arabfly",
     name: "ArabFly",
-    // TODO(content): Figma also shows a Google Play badge; it appears once
-    // the app's Google Play link is added here as `googlePlay`.
-    stores: { appStore: "https://apps.apple.com/us/app/arabfly/id6800468216" },
+    stores: {
+      appStore: "https://apps.apple.com/us/app/arabfly/id6800468216",
+      googlePlay:
+        "https://play.google.com/store/apps/details?id=com.arabfly.app",
+    },
     image: arabfly,
   },
   {

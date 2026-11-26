@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 
-import { AosInit } from "@/components/aos-init"
+import { AosRefresh } from "@/components/aos-init"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { WhatsAppButton } from "@/components/layout/whatsapp-button"
@@ -72,7 +72,7 @@ export default async function LocaleLayout({
         <main id="main">{children}</main>
         <SiteFooter />
         <WhatsAppButton label={dict.social.whatsapp} />
-        <AosInit />
+        <AosRefresh />
       </body>
     </html>
   )

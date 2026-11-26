@@ -141,10 +141,12 @@ export function ContactForm({
             "source",
             <div className="relative">
               <select
-                {...wire("source")}
                 // React applies a select's defaultValue only on mount, so
                 // remount it to keep the answer when the form comes back.
+                // (Before the spread: after one, JSX falls back to
+                // createElement, and React then wants keys on the options.)
                 key={values.source ?? ""}
+                {...wire("source")}
                 className={cn(
                   control,
                   "h-12 appearance-none pe-12 has-[option[value='']:checked]:text-field-ink [&>option]:bg-panel [&>option]:text-ink"

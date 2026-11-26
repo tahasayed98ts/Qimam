@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 
+import { AosInit } from "@/components/aos-init"
 import { ArticleBody } from "@/components/articles/article-body"
 import { ArticleToc } from "@/components/articles/article-toc"
 import { PageBackdrop } from "@/components/page-backdrop"
@@ -12,7 +13,10 @@ import { getDictionary, getLocale } from "@/i18n/dictionaries"
 
 // Fully static. Other slugs (articles without their text yet) are rendered
 // to the localized 404 before responding, so they get a real 404 status.
+// For that the page has no loading placeholder, so following a link here
+// waits for the page; `instant = false` says that's intended.
 export const ensureStatic = "navigation"
+export const instant = false
 
 export function generateStaticParams() {
   return articleSlugs.map((slug) => ({ slug }))
@@ -98,6 +102,7 @@ export default async function ArticlePage({
           )}
         </div>
       </div>
+      <AosInit />
     </div>
   )
 }

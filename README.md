@@ -72,14 +72,16 @@ the root font size to 90% there. Give sizes in `rem` or Tailwind spacing units
 (Figma px ÷ 4, e.g. `mt-[46px]` → `mt-11.5`) so they follow that scale; keep
 `px` for hairlines, shadows and blurs only.
 
-Scroll animations use [AOS](https://github.com/michalsnik/aos), started once
-in the root layout (`components/aos-init.tsx`). Add `data-aos="fade-up"` (or
-`fade-down`, `fade-right`, `fade-left`, `fade`) and `data-aos-delay="100"`
-etc. to stagger a row; section headings rise in by default. `fade-right`
-enters from the reading start, so it mirrors in Arabic. AOS replaces
-`transition-property` on animated elements, so put `data-aos` on a wrapper,
-not on an element with its own hover transition. Reduced-motion visitors and
-browsers without JavaScript see static content (`globals.css`).
+Scroll animations use [AOS](https://github.com/michalsnik/aos), started by the
+`<AosInit />` that ends every page (`components/aos-init.tsx`) once React has
+hydrated it; in the layout it would start too early. Give a new page one too:
+without it, visitors who land there wait 3 seconds for everything animated.
+Add `data-aos="fade-up"` (or `fade-down`, `fade-right`, `fade-left`, `fade`)
+and `data-aos-delay="100"` etc. to stagger a row; section headings rise in by
+default. `fade-right` enters from the reading start, so it mirrors in Arabic.
+AOS replaces `transition-property` on animated elements, so put `data-aos` on a
+wrapper, not on an element with its own hover transition. Reduced-motion
+visitors and browsers without JavaScript see static content (`globals.css`).
 
 ## Internationalization
 
@@ -143,8 +145,6 @@ spot is marked `TODO` in code):
   four on Home, then Tawaf, until more are added (each needs an image, an
   entry there and its category and description in both dictionaries, and a
   module in `src/content/case-studies/` for its details page).
-- ArabFly's Google Play link: Figma shows a Google Play badge beside the App
-  Store one, and it appears once the link is added in `src/content/projects.ts`.
 - ArabFly's gallery captions were template text in Figma ("Introduction and
   featured work"…) and now describe the screens; its gallery screenshots are
   small (496×226), so sharper exports would help.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AosInit } from "@/components/aos-init"
 import { PageBackdrop } from "@/components/page-backdrop"
 import { PageTitle } from "@/components/page-title"
 import { ProjectsTable } from "@/components/projects/projects-table"
@@ -42,6 +43,7 @@ export default async function ProjectsPage() {
           className="mt-12 lg:mt-16"
         />
       </section>
+      <AosInit />
     </div>
   )
 }

@@ -229,9 +229,10 @@ html[lang="ar"] {
 }
 
 /*
- * Scroll animations: AOS (Animate On Scroll), started by AosInit in the root
- * layout. Mark an element with data-aos="fade-up" (or fade-down, fade-right,
- * fade-left, fade) and stagger items in a row with data-aos-delay="100" etc.
+ * Scroll animations: AOS (Animate On Scroll), started by the AosInit at the
+ * end of every page. Mark an element with data-aos="fade-up" (or fade-down,
+ * fade-right, fade-left, fade) and stagger items in a row with
+ * data-aos-delay="100" etc.
  * AOS replaces transition-property on animated elements, so put data-aos on
  * a wrapper, not on an element with its own hover transitions.
  * These overrides are unlayered so they can beat aos.css (loaded first).

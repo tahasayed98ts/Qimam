@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { AboutGallery } from "@/components/about/about-gallery"
 import { AboutIntro } from "@/components/about/about-intro"
 import { GoalsSection } from "@/components/about/goals-section"
+import { AosInit } from "@/components/aos-init"
 import { PageBackdrop } from "@/components/page-backdrop"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { localizePath } from "@/i18n/config"
@@ -33,6 +34,7 @@ export default function AboutPage() {
       <AboutGallery />
       <GoalsSection />
       <TestimonialsSection headingClassName="lg:text-[2rem]" />
+      <AosInit />
     </div>
   )
 }
