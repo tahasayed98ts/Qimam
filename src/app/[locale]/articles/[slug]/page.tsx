@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 
+import { AosInit } from "@/components/aos-init"
 import { ArticleBody } from "@/components/articles/article-body"
 import { ArticleToc } from "@/components/articles/article-toc"
 import { PageBackdrop } from "@/components/page-backdrop"
@@ -98,6 +99,7 @@ export default async function ArticlePage({
           )}
         </div>
       </div>
+      <AosInit />
     </div>
   )
 }

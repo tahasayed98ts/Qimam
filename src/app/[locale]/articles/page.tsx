@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AosInit } from "@/components/aos-init"
 import { ArticleCard } from "@/components/articles/article-card"
 import { PageBackdrop } from "@/components/page-backdrop"
 import { PageTitle } from "@/components/page-title"
@@ -52,6 +53,7 @@ export default async function ArticlesPage() {
           ))}
         </ul>
       </section>
+      <AosInit />
     </div>
   )
 }

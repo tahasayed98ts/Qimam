@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
+import { AosInit } from "@/components/aos-init"
 import { CaseStudyApproach } from "@/components/case-study/case-study-approach"
 import { CaseStudyChallenge } from "@/components/case-study/case-study-challenge"
 import { CaseStudyGallery } from "@/components/case-study/case-study-gallery"
@@ -77,6 +78,7 @@ export default async function ProjectPage({
       <CaseStudyApproach showcase={study.approach} copy={copy.approach} />
       {rule}
       <CaseStudyGallery shots={study.gallery} copy={copy.gallery} />
+      <AosInit />
     </div>
   )
 }

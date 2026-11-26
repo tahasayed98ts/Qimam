@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AosInit } from "@/components/aos-init"
 import { PageBackdrop } from "@/components/page-backdrop"
 import { IndustriesSection } from "@/components/services/industries-section"
 import { ProcessTimeline } from "@/components/services/process-timeline"
@@ -34,6 +35,7 @@ export default function ServicesPage() {
       <ServicesOverview />
       <ProcessTimeline />
       <IndustriesSection />
+      <AosInit />
     </div>
   )
 }

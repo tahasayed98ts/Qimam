@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AosInit } from "@/components/aos-init"
 import { ContactForm } from "@/components/contact/contact-form"
 import { PageBackdrop } from "@/components/page-backdrop"
 import { PageTitle } from "@/components/page-title"
@@ -36,6 +37,7 @@ export default async function ContactPage() {
         <PageTitle id="contact-title">{dict.contact.title}</PageTitle>
         <ContactForm locale={locale} labels={dict.contact} />
       </section>
+      <AosInit />
     </div>
   )
 }

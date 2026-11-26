@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { AosInit } from "@/components/aos-init"
 import { DoubleChevron } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { localizePath } from "@/i18n/config"
@@ -21,6 +22,7 @@ export default async function NotFound() {
           <DoubleChevron className="size-5 rtl:-scale-x-100" />
         </Link>
       </Button>
+      <AosInit />
     </section>
   )
 }

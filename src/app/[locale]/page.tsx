@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AosInit } from "@/components/aos-init"
 import { HeroSection } from "@/components/home/hero/hero-section"
 import { ProjectsSection } from "@/components/home/projects-section"
 import { SolutionsSection } from "@/components/home/solutions-section"
@@ -32,6 +33,7 @@ export default function HomePage() {
       <StatsSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <AosInit />
     </>
   )
 }
