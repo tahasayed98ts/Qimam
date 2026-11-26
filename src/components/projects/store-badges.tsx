@@ -25,7 +25,8 @@ const badgeLink =
 
 /**
  * A project's store badges, on the dark chip that otherwise holds its URL.
- * Each badge appears once its store link is known.
+ * Each badge appears once its store link is known. They stack below 360px,
+ * where a row of both would run into the project's arrow button.
  */
 export function StoreBadges({
   name,
@@ -37,7 +38,7 @@ export function StoreBadges({
   labels: Dictionary["projects"]
 }) {
   return (
-    <div className="mt-2.5 flex w-fit items-center gap-2.5 rounded-[0.375rem] bg-[#272727] px-3 py-2">
+    <div className="mt-2.5 flex w-fit items-center gap-2.5 rounded-[0.375rem] bg-[#272727] px-3 py-2 max-[22.5rem]:flex-col max-[22.5rem]:items-start">
       {stores.appStore && (
         <a
           href={stores.appStore}

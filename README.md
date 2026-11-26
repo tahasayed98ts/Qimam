@@ -143,8 +143,6 @@ spot is marked `TODO` in code):
   four on Home, then Tawaf, until more are added (each needs an image, an
   entry there and its category and description in both dictionaries, and a
   module in `src/content/case-studies/` for its details page).
-- ArabFly's Google Play link: Figma shows a Google Play badge beside the App
-  Store one, and it appears once the link is added in `src/content/projects.ts`.
 - ArabFly's gallery captions were template text in Figma ("Introduction and
   featured work"…) and now describe the screens; its gallery screenshots are
   small (496×226), so sharper exports would help.
