@@ -15,8 +15,11 @@ import { getLocale } from "@/i18n/dictionaries"
 
 // Fully static. Other ids are rendered (to the localized 404, for projects
 // without a case study yet) before responding, so they get a real 404 status
-// rather than a streamed shell.
+// rather than a streamed shell. For that the page has no loading placeholder,
+// so following a link here waits for the page; `instant = false` says that's
+// intended.
 export const ensureStatic = "navigation"
+export const instant = false
 
 export function generateStaticParams() {
   return caseStudyIds.map((id) => ({ id }))

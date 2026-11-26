@@ -13,7 +13,10 @@ import { getDictionary, getLocale } from "@/i18n/dictionaries"
 
 // Fully static. Other slugs (articles without their text yet) are rendered
 // to the localized 404 before responding, so they get a real 404 status.
+// For that the page has no loading placeholder, so following a link here
+// waits for the page; `instant = false` says that's intended.
 export const ensureStatic = "navigation"
+export const instant = false
 
 export function generateStaticParams() {
   return articleSlugs.map((slug) => ({ slug }))
